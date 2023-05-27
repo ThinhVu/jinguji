@@ -47,6 +47,7 @@ const layouts = [
   ['hide-scroll-bar::-webkit-scrollbar', {display: 'none'}], /* Chrome, Safari and Opera, doesn't support by UnoCSS */
 
   /* flex */
+  /* https://css-tricks.com/snippets/css/a-guide-to-flexbox */
   ['fr', {display: 'flex'}],
   ['fc', {display: 'flex', 'flex-direction': 'column'}],
   ['fw-w', {'flex-wrap': 'wrap'}],
