@@ -53,7 +53,9 @@ const layouts = [
   ['fw-w', {'flex-wrap': 'wrap'}],
   ['fw-nw', {'flex-wrap': 'nowrap'}],
   ['fw-wr', {'flex-wrap': 'wrap-reverse'}],
-  [/^fg-(\d+)$/, ([, d]) => ({gap: `${d / 2}em`})],
+  [/^fg-(\w+)$/, ([, w]) => ({gap: w})],
+  [/^fg-r-(\w+)$/, ([, w]) => ({rowGap: w})],
+  [/^fg-c-(\w+)$/, ([, w]) => ({columnGap: w})],
   [/^f(\d+)$/, ([, d]) => ({flex: d})],
 
   ['ac-c', {'align-content': 'center'}],
