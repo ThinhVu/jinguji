@@ -40,7 +40,8 @@ This repo show some concepts which boost your Vue productivity. Production not r
 ```
 
 ```vue
-// no-throw
+// guard
+// see more at GuardExample
 const items = [
   {_id: 1, name: 'Item 1', tax: [13, 13]},
   {_id: 1, name: 'Item 2', tax: [13, 13]},
@@ -54,7 +55,7 @@ const items = [
 </div>
 
 // item 1 & item 2 rendered
-<no-throw v-for="item in items" :key="item._id">
+<guard v-for="item in items" :key="item._id" silent>
   {{item._id}} -- {{item.name}} -- {{item.tax[0]}}
-</no-throw>
+</guard>
 ```
