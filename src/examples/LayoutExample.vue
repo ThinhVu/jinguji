@@ -17,6 +17,12 @@
         <icon>fas fa-times@20:#2f23f2</icon>
       </fr>
 
+      <fr ai-c fg-1 v-if="show">
+        <button>1</button>
+        <button>2</button>
+        <icon>fas fa-times@20:#2f23f2</icon>
+      </fr>
+
       <!-- flex col -->
       <fc mt-2 px-2 fg-1>
         <button>1</button>
@@ -26,3 +32,7 @@
     </ex>
   </div>
 </template>
+<script setup>
+import {ref} from 'vue'
+const show = ref(false)
+</script>
