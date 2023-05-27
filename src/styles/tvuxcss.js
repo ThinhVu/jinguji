@@ -50,6 +50,8 @@ const layouts = [
   ['fr', {display: 'flex'}],
   ['fc', {display: 'flex', 'flex-direction': 'column'}],
   ['fw-w', {'flex-wrap': 'wrap'}],
+  ['fw-nw', {'flex-wrap': 'nowrap'}],
+  ['fw-wr', {'flex-wrap': 'wrap-reverse'}],
   [/^fg-(\d+)$/, ([, d]) => ({gap: `${d / 2}em`})],
   [/^f(\d+)$/, ([, d]) => ({flex: d})],
   ['ai-bl', {'align-items': 'baseline'}],
