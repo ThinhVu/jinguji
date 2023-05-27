@@ -56,6 +56,13 @@ const layouts = [
   [/^fg-(\d+)$/, ([, d]) => ({gap: `${d / 2}em`})],
   [/^f(\d+)$/, ([, d]) => ({flex: d})],
 
+  ['ac-c', {'align-content': 'center'}],
+  ['ac-fe', {'align-content': 'flex-end'}],
+  ['ac-fs', {'align-content': 'flex-start'}],
+  ['ac-s', {'align-content': 'stretch'}],
+  ['ac-sa', {'align-content': 'space-around'}],
+  ['ac-sb', {'align-content': 'space-between'}],
+
   ['ai-bl', {'align-items': 'baseline'}],
   ['ai-c', {'align-items': 'center'}],
   ['ai-fe', {'align-items': 'flex-end'}],
