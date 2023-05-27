@@ -2,6 +2,7 @@
 export default {
   props: {
     silent: Boolean,
+    handleError: Function // TODO: handle error
   },
   setup(props, {slots}) {
     return () => {
