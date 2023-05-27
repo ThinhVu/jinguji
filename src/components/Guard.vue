@@ -1,6 +1,5 @@
 <script lang="jsx">
 export default {
-  name: 'NoThrow',
   props: {
     silent: Boolean,
   },

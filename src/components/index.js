@@ -9,7 +9,7 @@ import Imgx from './Imgx.vue';
 import ImgxSlide from './ImgxSlide.vue';
 import Load from './Load.vue';
 import LoadMore from './LoadMore.vue';
-import NoThrow from './NoThrow.vue';
+import Guard from './Guard.vue';
 import PageContent from './PageContent.vue';
 import PageHeader from './PageHeader.vue';
 import PagingToolbar from './PagingToolbar.vue';
@@ -42,7 +42,7 @@ export default {
   ImgxSlide,
   Load,
   LoadMore,
-  NoThrow,
+  Guard,
   PageHeader,
   PageContent,
   PagingToolbar,
