@@ -28,6 +28,9 @@ const layouts = [
   [/^min-h-(\d+)px/, ([, d]) => ({['min-height']: `${d}px`})],
   [/^min-w-(\d+)px/, ([, d]) => ({['min-width']: `${d}px`})],
 
+  [/^max-h-(\d+)px/, ([, d]) => ({['max-height']: `${d}px`})],
+  [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px`})],
+
   ['h-50', {height: '100%'}],
   ['h-100', {height: '100%'}],
   ['h-100vh', {height: '100vh'}],
