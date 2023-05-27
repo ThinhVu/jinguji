@@ -44,7 +44,7 @@ const layouts = [
   ['ovf-y-s', {'overflow-y': 'scroll'}],
   ['ovf-y-h', {'overflow-y': 'hidden'}],
   ['hide-scroll-bar', {'-ms-overflow-style': 'none', /* IE, Edge */ 'scrollbar-width': 'none'  /* Firefox */}],
-  ['hide-scroll-bar::-webkit-scrollbar', {display: 'none'}], /* Chrome, Safari and Opera */
+  ['hide-scroll-bar::-webkit-scrollbar', {display: 'none'}], /* Chrome, Safari and Opera, doesn't support by UnoCSS */
 
   /* flex */
   ['fr', {display: 'flex'}],
