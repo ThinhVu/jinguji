@@ -31,11 +31,9 @@ const layouts = [
   [/^max-h-(\d+)px/, ([, d]) => ({['max-height']: `${d}px`})],
   [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px`})],
 
-  ['h-50', {height: '100%'}],
-  ['h-100', {height: '100%'}],
+  [/^h-(\d+)$/, ([, d]) => ({height: `${d}%`})],
   ['h-100vh', {height: '100vh'}],
-  ['w-50', {width: '50%'}],
-  ['w-100', {width: '100%'}],
+  [/^h-(\d+)$/, ([, d]) => ({width: `${d}%`})],
   ['w-100vw', {width: '100vw'}],
 
   /* overflow */
