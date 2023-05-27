@@ -54,10 +54,19 @@ const layouts = [
   ['fw-wr', {'flex-wrap': 'wrap-reverse'}],
   [/^fg-(\d+)$/, ([, d]) => ({gap: `${d / 2}em`})],
   [/^f(\d+)$/, ([, d]) => ({flex: d})],
+
   ['ai-bl', {'align-items': 'baseline'}],
   ['ai-c', {'align-items': 'center'}],
   ['ai-fe', {'align-items': 'flex-end'}],
   ['ai-fs', {'align-items': 'flex-start'}],
+
+  ['as-a', {'align-self': 'auto'}],
+  ['as-b', {'align-self': 'baseline'}],
+  ['as-c', {'align-self': 'center'}],
+  ['as-fe', {'align-self': 'flex-end'}],
+  ['as-fs', {'align-self': 'flex-start'}],
+  ['as-s', {'align-self': 'stretch'}],
+
   ['jc-c', {'justify-content': 'center'}],
   ['jc-sa', {'justify-content': 'space-around'}],
   ['jc-sb', {'justify-content': 'space-between'}],
