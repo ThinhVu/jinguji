@@ -24,16 +24,10 @@ import Txt from './Txt.vue';
 import TxtArea from './TxtArea.vue';
 
 // Layout
-import Ex from './Layout/Ex.vue';
-import Fc from './Layout/Fc.vue'
-import Fr from './Layout/Fr.vue'
-import Grid from './Layout/Grid.vue'
+import Layout from './Layout.vue';
 
 export default {
-  Ex,
-  Fc, ColFlex: Fc, FlexCol: Fc,
-  Fr, RowFlex: Fr, FlexRow: Fr,
-  Grid,
+  Layout,
   Overlay,
   System,
   CollapsibleSection,

@@ -1,35 +1,31 @@
 <template>
   <div>
     <h3>Layout example</h3>
-    <!-- extend -->
-    <ex px-2 py-2>
-      <!-- flex row -->
-      <ex fr ai-c fg-1 mb-2>
-        <button>1</button>
-        <button>2</button>
-        <icon>fas fa-times@20:red</icon>
-      </ex>
+    <layout fr ai-c fg-10px mb-2 v-if="show">
+      Hide
+    </layout>
 
-      <!-- flex row -->
-      <fr ai-c fg-1>
-        <button>1</button>
-        <button>2</button>
-        <icon>fas fa-times@20:#2f23f2</icon>
-      </fr>
+    <layout v-for="i in [1,2]" :key="i">
+      {{i}}
+    </layout>
 
-      <fr ai-c fg-1 v-if="show">
-        <button>1</button>
-        <button>2</button>
-        <icon>fas fa-times@20:#2f23f2</icon>
-      </fr>
+    <layout fr ai-c fg-10px mb-2>
+      <button>1</button>
+      <button>2</button>
+      <icon>fas fa-times@20:red</icon>
+    </layout>
 
-      <!-- flex col -->
-      <fc mt-2 px-2 fg-1>
-        <button>1</button>
-        <button>2</button>
-        <icon>fas fa-times@20</icon>
-      </fc>
-    </ex>
+    <layout fc ai-c fg-10px mb-2>
+      <button>1</button>
+      <button>2</button>
+      <icon>fas fa-times@20:red</icon>
+    </layout>
+
+    <layout grid gtc-1fr-2fr-50px ai-c fg-10px mb-2>
+      <button>1</button>
+      <button>2</button>
+      <icon>fas fa-times@20:red</icon>
+    </layout>
   </div>
 </template>
 <script setup>
