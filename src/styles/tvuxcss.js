@@ -87,6 +87,7 @@ const layouts = [
   ['jc-r', {'justify-content': 'revert'}],
 
   /* grid */
+  /* https://css-tricks.com/snippets/css/complete-guide-grid */
   ['grid', {display: 'grid'}],
   [/^gg-(\w+)$/, ([, w]) => ({['grid-gap']: w})],
   [/^gtc-(\w+)-(\w+)$/, ([, w1, w2]) => ({'grid-template-columns': `${w1} ${w2}`})],

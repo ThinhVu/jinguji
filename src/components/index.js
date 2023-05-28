@@ -31,7 +31,9 @@ import Grid from './Layout/Grid.vue'
 
 export default {
   Ex,
-  Fc, Fr, Grid,
+  Fc, ColFlex: Fc, FlexCol: Fc,
+  Fr, RowFlex: Fr, FlexRow: Fr,
+  Grid,
   Overlay,
   System,
   CollapsibleSection,

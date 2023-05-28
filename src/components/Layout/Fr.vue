@@ -1,4 +1,5 @@
 <script type="jsx">
 import cssAttrComponentFactory from '../cssAttrComponentFactory'
-export default cssAttrComponentFactory('fr')
+import flexProps from './flex-props';
+export default cssAttrComponentFactory(flexProps, 'fr')
 </script>
