@@ -2,8 +2,10 @@
   <div>{{fmtNow}}</div>
 </template>
 <script setup>
-import * as dayjs from 'dayjs';
+import {ref, onMounted, onBeforeUnmount, watch} from 'vue'
+import dayjs from 'dayjs';
 const props = defineProps({interval: Number})
+
 const fmtNow = ref();
 let intervalId;
 function startTimer(interval) {
@@ -12,6 +14,7 @@ function startTimer(interval) {
 function stopTimer() {
   clearInterval(intervalId)
 }
+
 onMounted(startTimer)
 onBeforeUnmount(stopTimer)
 watch(() => props.interval, v => {

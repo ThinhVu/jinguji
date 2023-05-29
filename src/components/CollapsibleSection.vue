@@ -13,7 +13,10 @@
     </template>
   </div>
 </template>
+
 <script setup>
+import {ref, computed} from 'vue';
+
 const props = defineProps({
   title: String,
   caretPosition: {
@@ -23,6 +26,7 @@ const props = defineProps({
   showContent: Boolean
 })
 const emit = defineEmits(['titleClick'])
+
 const displayContent = ref(props.showContent)
 const toggle = () => displayContent.value = !displayContent.value
 const caretIcon = computed(() => displayContent.value ? 'fas fa-caret-down@15' : 'fas fa-caret-up@15')

@@ -1,7 +1,9 @@
 <template>
   <div class="pulse-block"></div>
 </template>
+
 <script setup/>
+
 <style scoped>
 .pulse-block {
   animation: pulse-bg 1s infinite;

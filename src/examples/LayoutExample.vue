@@ -1,53 +1,40 @@
 <template>
   <div>
-    <h3>Layout example</h3>
-    <p>1. Layout with directive v-if</p>
-    <layout fr ai-c fg-10px mb-2 v-if="show">
-      Hide
-    </layout>
 
-    <p>2. Layout with directive v-for</p>
-    <layout v-for="i in [1,2]" :key="i">
-      Item {{i}}
-    </layout>
-
-    <p>3. Layout with event handle</p>
-    <layout fr ai-c fg-10px mb-2 @click="clickMe">
-      <button @click="clickMe(1)">1</button>
-      <button @click="clickMe(2)">2</button>
+    <p>fr ai-c fg-10px mb-2</p>
+    <div class="fr ai-c fg-10px mb-2" @click="clickMe">
+      <btn @click="clickMe(1)">1</btn>
+      <btn @click="clickMe(2)">2</btn>
       <icon>fas fa-times@20:red</icon>
-    </layout>
+    </div>
 
-    <Abc @click="clickMe('abc')"></Abc>
     <!-- region hide -->
-    <p>4. Layout flex column</p>
-    <layout fc ai-c fg-10px mb-2>
-      <button>1</button>
-      <button>2</button>
+    <p>fc ai-c fg-10px mb-2</p>
+    <div class="fc ai-c fg-10px mb-2">
+      <btn>1</btn>
+      <btn>2</btn>
       <icon>fas fa-times@20:red</icon>
-    </layout>
+    </div>
 
-    <p>5. Layout grid</p>
-    <layout grid gtc-1fr-2fr-50px ai-c fg-10px mb-2>
-      <button>1</button>
-      <button>2</button>
+    <p>grid gtc-1fr-2fr-50px ai-c fg-10px mb-2</p>
+    <div class="grid gtc-100px-3fr-1fr-50px ai-c fg-10px mb-2">
+      <btn>1</btn>
+      <btn>2</btn>
+      <btn>3</btn>
       <icon>fas fa-times@20:red</icon>
-    </layout>
+    </div>
     <!-- endregion -->
   </div>
 </template>
 <script setup lang="jsx">
-const Abc = {
-  setup() {
-    return () => <layout>ABC</layout>
-  }
-}
-
 import {ref} from 'vue'
 const show = ref(false)
 const clickMe = (x) => console.log('click hit', x)
 
-const fn = () => console.log('hey there')
-
-
 </script>
+
+<style scoped>
+* {
+  outline: 1px solid red;
+}
+</style>

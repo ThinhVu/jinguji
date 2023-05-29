@@ -6,6 +6,7 @@
   </template>
 </template>
 <script setup>
+import {computed} from 'vue';
 import loading from './System/loading';
 const props = defineProps({ action: String, title: String })
 const isLoading = computed(() => loading.loading(props.action))

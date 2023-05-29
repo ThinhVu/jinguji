@@ -10,7 +10,10 @@
     </div>
   </div>
 </template>
+
 <script setup>
+import {computed, onMounted} from 'vue'
+
 const props = defineProps({ media: Array, idx: Number })
 
 const idx = ref(props.idx || 0)
@@ -19,6 +22,7 @@ const canNext = computed(() => idx.value < props.media.length - 1)
 const prev = () => idx.value = Math.max(idx.value - 1, 0)
 const next = () => idx.value = Math.min(idx.value + 1, props.media.length - 1)
 const src = computed(() => props.media && props.media[idx.value])
+
 onMounted(() => {
   if (props.media.length)
     idx.value = 0

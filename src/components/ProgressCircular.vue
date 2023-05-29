@@ -1,4 +1,5 @@
 <script lang="jsx">
+import {computed, watch} from 'vue';
 
 function convertToUnit(str, unit = 'px') {
   if (str == null || str === '') {
@@ -11,7 +12,6 @@ function convertToUnit(str, unit = 'px') {
 }
 
 export default {
-  name: 'GProgressCircular',
   props: {
     indeterminate: Boolean,
     rotate: {

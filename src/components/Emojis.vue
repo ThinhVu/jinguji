@@ -10,10 +10,12 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import emojis from '../assets/json/emoji'
 const emit = defineEmits(['close'])
 </script>
+
 <style scoped>
 .emj:hover {
   background: #aaa;

@@ -1,8 +1,10 @@
 <template>
   <span>{{timeDiff(props.value)}}</span>
 </template>
+
 <script setup>
 import dayjs from 'dayjs';
+// bug
 const props = defineProps({value: [Date, String]})
 function timeDiff(at) {
   const now = dayjs()

@@ -1,13 +1,44 @@
 <template>
-  <LayoutExample/>
-  <GuardExample/>
-  <TrackExample/>
+  <div class="w-100vw h-100vh fc fg-6px px-2 py-2">
+    <div class="fr ai-c fg-6px pb-2 fw-w"
+         style="border-bottom: 5px solid red">
+      <btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
+        {{k}}
+      </btn>
+    </div>
+    <div>
+      <component :is="demos[view]"/>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import {ref} from 'vue';
+import DialogExample from './examples/DialogExample.vue';
+import MsgBoxExample from './examples/MsgBoxExample.vue';
+import NotificationExample from './examples/NotificationExample.vue';
 import LayoutExample from './examples/LayoutExample.vue';
 import GuardExample from './examples/GuardExample.vue';
 import TrackExample from './examples/TrackExample.vue';
+import ButtonExample from './examples/ButtonExample.vue';
+import CollapsibleSectionExample from './examples/CollapsibleSectionExample.vue';
+import IconExample from './examples/IconExample.vue';
+
+
+const demos = {
+  DialogExample,
+  MsgBoxExample,
+  NotificationExample,
+  LayoutExample,
+  GuardExample,
+  TrackExample,
+  ButtonExample,
+  CollapsibleSectionExample,
+  IconExample
+}
+
+const view = ref(Object.keys(demos)[0])
+
 </script>
 
 <style>
@@ -18,27 +49,7 @@ import TrackExample from './examples/TrackExample.vue';
   font-family: Sans-Serif;
 }
 
-button {
-  background: #1f252f;
-  color: #eee;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  padding: 0.5em 1em;
-  box-shadow: 2px 2px 4px 0 rgba(0,0,0,.4);
-}
 
-button.active {
-  background: #eee;
-  color: #1f252f;
-}
-
-
-input {
-  height: 30px;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-}
 
 select {
   height: 30px;
@@ -51,32 +62,5 @@ https://github.com/unocss/unocss/issues/2371
 */
 .hide-scroll-bar::-webkit-scrollbar {
   display: none; /* Hide scrollbar for Chrome, Safari and Opera */
-}
-
-table {
-  /*border: 1px solid #ddd;*/
-  border-collapse: collapse;
-  width: 100%;
-  font-size: 12px;
-}
-
-th, td {
-  background-color: #1a1a22;
-  height: 30px;
-  padding: 0 16px;
-  color: #ddd;
-  border-bottom: thin solid hsla(0, 0%, 100%, .12);
-  text-align: left;
-}
-
-tr:hover > td {
-  background-color: #252531;
-}
-
-th {
-  position: sticky;
-  top: 0;
-  color: #aaa;
-  height: 48px;
 }
 </style>

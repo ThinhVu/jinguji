@@ -1,23 +1,21 @@
-<script lang="jsx">
-import * as _ from 'lodash';
-import Icon from './Icon.vue';
-export default {
-  components: {Icon},
-  props: {
-    max: {
-      type: Number,
-      default: 5
-    },
-    modelValue: Number
-  },
-  setup(props, ctx) {
-    return () => <span class="clickable">
-      {_.range(1, props.max + 1).map(i => <icon
+<template>
+  <span class="clickable">
+    <icon v-for="i in _.range(1, max + 1)"
           style="margin-left: 5px"
-          onClick={() => ctx.emit('update:modelValue', i)}
-          color={i <= props.modelValue ? '#fab23d': 'gray'}>fa fa-star@20</icon>
-      )}
-    </span>
-  }
-}
+          :color="i <= modelValue ? '#fab23d': 'gray'"
+          @click="$emit('update:modelValue', i)">fa fa-star@20</icon>
+  </span>
+</template>
+<script setup>
+import _ from 'lodash';
+import Icon from './Icon.vue';
+
+const props = defineProps({
+  max: {
+    type: Number,
+    default: 5
+  },
+  modelValue: Number
+})
+const emit = defineEmits(['update:modelValue'])
 </script>

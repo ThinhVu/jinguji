@@ -1,18 +1,20 @@
 <template>
   <template v-if="totalItems">
     <div>Total: {{totalItems}}</div>
-    <button :disabled="!canPrev" @click="firstPage">|&lt;</button>
-    <button :disabled="!canPrev" @click="prevPage">&lt;</button>
+    <btn :disabled="!canPrev" @click="firstPage">|&lt;</btn>
+    <btn :disabled="!canPrev" @click="prevPage">&lt;</btn>
     <span>{{page}} / {{totalPages}}</span>
-    <button :disabled="!canGoNext" @click="nextPage">&gt;</button>
-    <button :disabled="!canGoNext" @click="lastPage">&gt;|</button>
+    <btn :disabled="!canGoNext" @click="nextPage">&gt;</btn>
+    <btn :disabled="!canGoNext" @click="lastPage">&gt;|</btn>
   </template>
   <template v-else>
     Empty
   </template>
 </template>
 <script setup>
-import * as _ from 'lodash';
+import _ from 'lodash';
+import {computed} from 'vue';
+import Btn from './Btn.vue';
 
 const props = defineProps({
   page: Number,

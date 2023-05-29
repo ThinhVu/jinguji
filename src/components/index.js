@@ -1,6 +1,7 @@
 import Overlay from './Layer/Overlay.vue';
 import System from './System/System.vue';
 
+import Btn from './Btn.vue';
 import CollapsibleSection from './CollapsibleSection.vue';
 import Emojis from './Emojis.vue';
 import HLine from './HLine.vue';
@@ -23,22 +24,18 @@ import Tooltip from './Tooltip.vue';
 import Txt from './Txt.vue';
 import TxtArea from './TxtArea.vue';
 
-// Layout
-import Layout from './Layout.vue';
-
 export default {
-  Layout,
-  Overlay,
-  System,
+  Btn,
   CollapsibleSection,
   Emojis,
+  Guard,
   HLine,
   Icon,
   Imgx,
   ImgxSlide,
   Load,
   LoadMore,
-  Guard,
+  Overlay,
   PageHeader,
   PageContent,
   PagingToolbar,
@@ -47,6 +44,7 @@ export default {
   Rating,
   Spacer,
   Switch,
+  System,
   TimeFormat,
   Tooltip,
   Txt,

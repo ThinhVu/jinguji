@@ -48,7 +48,7 @@ const renderBtn = (uiLabel, onClick, isDefaultBtn) => {
     color: isDefaultBtn ? '#fff' : '#1f1f1f',
     minWidth: '100px',
   }
-  return <button class="px-2 py-1 clickable ta-c" style={style} onClick={onClick}>{uiLabel.toUpperCase()}</button>
+  return <btn class="px-2 py-1 clickable ta-c" style={style} onClick={onClick}>{uiLabel.toUpperCase()}</btn>
 }
 
 const btnRenders = {
@@ -57,7 +57,7 @@ const btnRenders = {
     {renderBtn('cancel', () => on(Results.cancel))}
     {renderBtn('ok', () => on(Results.ok), true)}
   </>,
-  [Buttons.AbortRetryIgnore]: (t, on) => <>
+  [Buttons.AbortRetryIgnore]: (on) => <>
     {renderBtn('abort', () => on(Results.abort))}
     {renderBtn('retry', () => on(Results.retry))}
     {renderBtn('ignore', () => on(Results.ignore))}
@@ -91,17 +91,17 @@ const render = () => {
     return
 
   return <overlay zIndex={msgData.value.zIndex}>
-    <div class="bc-gray-0 br-1 my-0 mx-a" style={{width: '70%', maxWidth: '500px'}}>
+    <div class="bc:#ddd br-1 my-0 mx-a" style={{width: '70%', maxWidth: '500px'}}>
       <div class="px-2 py-2" style="border-bottom: 1px solid #e0e0e0">
         <b>{msgData.value.title}</b>
       </div>
       <div class="px-2 py-2">
-        <div class="fr jc-fs fg-2">
+        <div class="fr jc-fs fg-12px">
           {iconRenders[msgData.value.icon]()}
           {typeof (msgData.value.content) === 'function' ? msgData.value.content() : msgData.value.content}
         </div>
       </div>
-      <div class="fr ai-c jc-fe fg-1 px-2 py-2">
+      <div class="fr ai-c jc-fe fg-6px px-2 py-2">
         {btnRenders[msgData.value.btn](msgData.value.resultHandlerFn)}
       </div>
     </div>

@@ -26,7 +26,6 @@ function parseIconData(iconData, propsColor) {
 }
 
 export default {
-  name: 'Icon',
   props: { class: String, color: String },
   setup(props, ctx) {
     return () => {

@@ -1,54 +1,98 @@
-import {ref} from 'vue'
-import {v1} from 'uuid'
+import { ref } from 'vue';
+import {v4} from 'uuid';
+import _ from 'lodash';
 
 const notifyState = ref({})
 
-/**
- * Show system notify
- * @param {String} content notify content
- * @param {String} color [save: #536dfe, error: #E57373]
- * @param {Number} duration milliseconds
- */
-function showNotify(content, color = '#cce5ff', duration = 2000) {
-  let msg;
-  if (content instanceof Error) {
-    if (content.response)
-      msg = content.response.data.error
-    else
-      msg = content.message
-  } else {
-    msg = content || 'Saved';
-  }
-  const notifyId = v1()
-  notifyState.value[notifyId] = {
-    content: msg,
+function showNotify(content, options) {
+  let {color, duration, position, prepend, title} = options
+  color = color || '#fff'
+  duration = duration == undefined ? 2000 : duration
+  position = position || {top: true, right: true}
+
+  const notifyId = v4()
+  const notify = {
+    content: content || 'Saved',
     color: color,
-    duration: duration,
+    show: true,
+    duration,
+    position,
+    prepend,
+    title
   }
-  setTimeout(() => delete notifyState.value[notifyId], duration)
+  notifyState.value[notifyId] = notify
+
+  const off = () => delete notifyState.value[notifyId]
+  if (duration > 0)
+    setTimeout(off, duration)
+  else
+    notify.off = off
+}
+export function info(content, options) {
+  if (!options)
+    options = {}
+  options.title = 'Info'
+  options.color = '#c7d8f1'
+  options.prepend = () => <icon class="mr-2" color="#3072d1">fas fa-info-circle@20</icon>
+  showNotify(content, options)
+}
+export function warn(content, options) {
+  if (!options)
+    options = {}
+  options.color = '#fff3cd'
+  options.title = 'Warning'
+  options.prepend = () => <icon class="mr-2" color="#dc8717">fas fa-exclamation-triangle@20</icon>
+  showNotify(content, options)
+}
+export function success(content, options) {
+  if (!options) options = {}
+  options.color = '#d8f6d2'
+  options.title = 'Success'
+  options.prepend = () => <icon class="mr-2" color="#47d130">fas fa-check@20</icon>
+  showNotify(content, options)
+}
+export function err(e, options) {
+  if (!options)
+    options = {}
+  options.title = 'Error'
+  options.color = '#f6cfd3'
+  options.prepend = () => <icon class="mr-2" color="#ee717c">fas fa-times-circle@20</icon>
+  showNotify(getErrorMsg(e), options)
+}
+function getErrorMsg(e) {
+  let errorContent
+  if (typeof(e) === 'string')
+    errorContent = e
+  else if (e.response) // axios error
+    errorContent = _.get(e.response, 'data.message', e.message)
+  else
+    errorContent = e.message
+  return errorContent
 }
 
-const norm = (content, duration) => showNotify(content, '#fafafa', duration)
-const info = (content, duration) => showNotify(content, '#cce5ff', duration)
-const err = (content, duration) => showNotify(content, '#f8d7da', duration)
-const warn = (content, duration) => showNotify(content, '#fff3cd', duration)
-const success = (content, duration) => showNotify(content, '#d4edda', duration)
-
-const render = () => {
-  const marginTop = i => ({marginTop: `${(i * 90) + 10}px`})
+export function render() {
+  const marginTop = i => ({marginTop: (i * 80 + 'px')})
   return <>
     {Object.values(notifyState.value).map((notify, i) =>
-        <div class="fix fr ai-c jc-c px-2 py-2 br-1" style={[marginTop(i), { marginRight: '10px', backgroundColor: notify.color}]}>
-          <span style="color: #444;">{notify.content}</span>
+        <div class="fixed fr ai-c jc-c px-2 py-2 br-1" style={[marginTop(i), {backgroundColor: notify.color}]}>
+          <div class="fr ai-fs">
+            {notify.prepend && notify.prepend()}
+            <div class="f1 max-w-360px">
+              {notify.title && <p class="fr ai-c c:#444 fw-700">
+                <span>{notify.title}</span>
+              </p>}
+              <p class="c:#444">{notify.content}</p>
+            </div>
+            {notify.off && <icon class="ml-2" onClick={notify.off}>fas fa-times@20:#444</icon>}
+          </div>
         </div>)}
   </>
 }
 
 export default {
-  render,
-  norm,
   info,
   err,
   warn,
   success,
+  render
 }

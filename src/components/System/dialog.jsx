@@ -1,5 +1,5 @@
 import {v4} from 'uuid'
-import {ref} from 'vue'
+import {ref, markRaw} from 'vue'
 import layer from '../Layer/layer'
 
 const dialogState = ref([])
@@ -8,7 +8,7 @@ const show = (target) => {
   let component
   let data
   if (target && typeof target.setup === 'function') {
-    component= markRaw(target)
+    component = markRaw(target)
   } else if (typeof target === 'function') {
     component = markRaw({setup: target})
   } else if (target?.component) {

@@ -1,17 +1,19 @@
 <template>
   <div class="tooltip">
     <slot></slot>
-    <span class="tooltiptext">
+    <span class="tooltip-text">
       {{content}}
       <slot name="content"></slot>
     </span>
   </div>
 </template>
+
 <script setup>
 const props = defineProps({
   content: String
 })
 </script>
+
 <style scoped>
 /* Tooltip container */
 .tooltip {
@@ -20,7 +22,7 @@ const props = defineProps({
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.tooltip .tooltip-text {
   visibility: hidden;
   width: 120px;
   background-color: #e0e0e0;
@@ -37,7 +39,7 @@ const props = defineProps({
   margin-left: -60px;
 }
 
-.tooltip .tooltiptext::after {
+.tooltip .tooltip-text::after {
   content: " ";
   position: absolute;
   top: 100%; /* At the bottom of the tooltip */
@@ -49,7 +51,7 @@ const props = defineProps({
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.tooltip:hover .tooltip-text {
   visibility: visible;
 }
 </style>
