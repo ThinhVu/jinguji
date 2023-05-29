@@ -6,10 +6,14 @@
   <rating/>
   <time-format/>
   <time-span :value="times"/>
+  <br/>
+  <readable-ms :value="98031232"/>
 </template>
 <script setup>
 import dayjs from 'dayjs'
 import TimeSpan from '../components/TimeSpan.vue';
+import ReadableTime from '../components/ReadableMs.vue';
+import ReadableMs from '../components/ReadableMs.vue';
 
 const times = dayjs().subtract(80, 'minute').toDate()
 </script>

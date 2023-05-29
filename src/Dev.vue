@@ -22,8 +22,7 @@ import GuardExample from './examples/GuardExample.vue';
 import TrackExample from './examples/TrackExample.vue';
 import ButtonExample from './examples/ButtonExample.vue';
 import CollapsibleSectionExample from './examples/CollapsibleSectionExample.vue';
-import IconExample from './examples/IconExample.vue';
-
+import UncategoryExample from './examples/UncategoryExample.vue';
 
 const demos = {
   DialogExample,
@@ -34,7 +33,7 @@ const demos = {
   TrackExample,
   ButtonExample,
   CollapsibleSectionExample,
-  IconExample
+  UncategoryExample
 }
 
 const view = ref(Object.keys(demos)[0])

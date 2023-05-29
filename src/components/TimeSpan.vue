@@ -1,5 +1,5 @@
 <template>
-  <span>{{timeDiff(props.value)}}</span>
+  <span>{{timeDiff(value)}}</span>
 </template>
 
 <script setup>
