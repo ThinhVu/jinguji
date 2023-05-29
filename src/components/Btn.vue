@@ -1,10 +1,7 @@
 <template>
-  <tvux>
-    <button></button>
-  </tvux>
+  <button></button>
 </template>
 <script setup>
-import Tvux from './Layout.vue';
 </script>
 <style scoped>
 </style>

@@ -1,11 +1,13 @@
 <template>
   <LayoutExample/>
   <GuardExample/>
+  <TrackExample/>
 </template>
 
 <script setup>
 import LayoutExample from './examples/LayoutExample.vue';
 import GuardExample from './examples/GuardExample.vue';
+import TrackExample from './examples/TrackExample.vue';
 </script>
 
 <style>
