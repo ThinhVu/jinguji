@@ -2,9 +2,9 @@
   <div class="w-100vw h-100vh fc fg-6px px-2 py-2">
     <div class="fr ai-c fg-6px pb-2 fw-w"
          style="border-bottom: 5px solid red">
-      <btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
+      <t-btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
         {{k}}
-      </btn>
+      </t-btn>
     </div>
     <div>
       <component :is="demos[view]"/>

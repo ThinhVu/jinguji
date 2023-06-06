@@ -2,21 +2,22 @@
   <div>
     <p>Track example</p>
     <div class="fr ai-c fg-10px">
-      <btn v-track.click.mouuseleave.mouseenter="'btn1'" @click="clickMe(1)">
+      <t-btn v-track.click.mouuseleave.mouseenter="'btn1'" @click="clickMe(1)">
         Click me 1
-      </btn>
-      <btn v-track.click="'btn2'" @click="clickMe(2)">
+      </t-btn>
+      <t-btn v-track.click="'btn2'" @click="clickMe(2)">
         Click me 2
-      </btn>
-      <btn @click="replay">
+      </t-btn>
+      <t-btn @click="replay">
         Replay
-      </btn>
+      </t-btn>
     </div>
-    <txt-area cols="50" rows="50" v-model="text"/>
+    <t-text cols="50" rows="50" v-model="text"/>
   </div>
 </template>
 <script setup>
 import {ref} from 'vue';
+import TText from '../components/TText.vue';
 
 const text = ref('')
 /*replay bug*/

@@ -1,18 +1,18 @@
 <template>
   <div class="fc fg-10px">
-    <div class="fr ai-c fg-10px mt-3">
-      <btn @click="showDefaultMsgBox">show default msgBox</btn>
-      <btn @click="showMsgBoxWithCustom1">show msgBox with custom buttons, icons, compare result</btn>
-      <btn @click="showMsgBoxWithCustom2">show msgBox with custom v-dom content</btn>
+    <div class="fr ai-c fw-w fg-10px mt-3">
+      <t-btn @click="showDefaultMsgBox">show default msgBox</t-btn>
+      <t-btn @click="showMsgBoxWithCustom1">show msgBox with custom buttons, icons, compare result</t-btn>
+      <t-btn @click="showMsgBoxWithCustom2">show msgBox with custom v-dom content</t-btn>
     </div>
   </div>
-  <txt-area style="border: 1px solid red" class="mt-3" v-model="text" cols="50" rows="20"/>
-  <system/>
+  <t-text multi-line v-model="text" cols="50" rows="20" style="border: 1px solid red" class="mt-3" />
+  <t-system/>
 </template>
 <script setup lang="jsx">
 import {ref} from 'vue'
-import notification from '../components/System/notification';
-import msgBox from '../components/System/msg-box';
+import msgBox from '../components/services/msg-box';
+import TText from '../components/TText.vue';
 
 const text = ref('')
 
@@ -45,8 +45,8 @@ const showMsgBoxWithCustom2 = async () => {
       () => <div class="bc:red px-2 py-2">
         <p>Some paragraph</p>,
         <div class="fr ai-c fg-10px">
-          <btn>Click me</btn>
-          <btn>Click me</btn>
+          <t-btn>Click me</t-btn>
+          <t-btn>Click me</t-btn>
         </div>
       </div>,
       msgBox.Buttons.YesNo,

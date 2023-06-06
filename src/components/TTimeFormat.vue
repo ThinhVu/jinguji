@@ -1,5 +1,5 @@
 <template>
-  <div>{{fmtNow}}</div>
+  <span>{{fmtNow}}</span>
 </template>
 <script setup>
 import {ref, onMounted, onBeforeUnmount, watch} from 'vue'

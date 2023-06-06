@@ -1,15 +1,17 @@
 <template>
-  <div class="fr ai-c fg-10px mt-3">
-    <btn @click="showDialogWithPredefinedComponent">show Dialog With Predefined Component</btn>
-    <btn @click="showDialogWithSetupFnComponent">Show Dialog With Setup Fn Component</btn>
-    <btn @click="showDialogWithDataBinding">show Dialog With Data Binding</btn>
+  <div class="fr ai-c fw-w fg-10px mt-3">
+    <t-btn @click="showDialogWithPredefinedComponent">show Dialog With Predefined Component</t-btn>
+    <t-btn @click="showDialogWithSetupFnComponent">Show Dialog With Setup Fn Component</t-btn>
+    <t-btn @click="showDialogWithDataBinding">show Dialog With Data Binding</t-btn>
+    <t-btn @click="showDialogWithTBaseDialog">show Dialog With TBaseDialog</t-btn>
   </div>
-  <txt-area style="border: 1px solid red" class="mt-3" v-model="text" cols="50" rows="20"/>
-  <system/>
+  <t-text multi-line v-model="text" cols="50" rows="20"
+          style="border: 1px solid red" class="mt-3"/>
+  <t-system/>
 </template>
 <script setup lang="jsx">
 import {ref} from 'vue'
-import dialog from '../components/System/dialog';
+import dialog from '../components/services/dialog';
 
 const text = ref('')
 
@@ -23,8 +25,8 @@ const showDialogWithPredefinedComponent = async () => {
         <p class="fw-700">Dialog title</p>
         <p class="my-2">Some content</p>
         <div class="fr ai-c jc-fe fg-10px">
-          <btn onClick={() => emit('close')}>Cancel</btn>
-          <btn onClick={() => emit('close', {anyData: 'can be return'})}>OK</btn>
+          <t-btn onClick={() => emit('close')}>Cancel</t-btn>
+          <t-btn onClick={() => emit('close', {anyData: 'can be return'})}>OK</t-btn>
         </div>
       </div>
     }
@@ -43,8 +45,8 @@ const showDialogWithSetupFnComponent = async () => {
       <p class="fw-700">Dialog title</p>
       <p class="my-2">Some content</p>
       <div class="fr ai-c jc-fe fg-10px">
-        <btn onClick={() => emit('close')}>Cancel</btn>
-        <btn onClick={() => emit('close', {anyData: 'can be return'})}>OK</btn>
+        <t-btn onClick={() => emit('close')}>Cancel</t-btn>
+        <t-btn onClick={() => emit('close', {anyData: 'can be return'})}>OK</t-btn>
       </div>
     </div>
   }
@@ -67,8 +69,8 @@ const showDialogWithDataBinding = async () => {
         <p class="my-2">Name: {props.customer.age}</p>
         <p class="my-2">Name: {props.customer.gender}</p>
         <div class="fr ai-c jc-fe fg-10px">
-          <btn onClick={() => emit('close')}>Close</btn>
-          <btn onClick={() => emit('close', {anyData: props.customer})}>OK</btn>
+          <t-btn onClick={() => emit('close')}>Close</t-btn>
+          <t-btn onClick={() => emit('close', {anyData: props.customer})}>OK</t-btn>
         </div>
       </div>
     }
@@ -77,6 +79,48 @@ const showDialogWithDataBinding = async () => {
     component: customerInfoDialog,
     data: { customer: { name: 'Josh', age: 40, gender: 'male' } }
   })
+  if (rs) {
+    text.value += 'dialog close with data: ' + JSON.stringify(rs) + '\n'
+  } else {
+    text.value += 'dialog close by cancel\n'
+  }
+}
+
+const showDialogWithTBaseDialog = async () => {
+  // note: this component can be import from other files
+  // it's a recommended way.
+  // I write in here just for simplicity
+  const predefinedComponent = {
+    setup(props, {emit}) {
+      return () => <t-base-dialog
+          title="Edit repository details" class="min-w-640px"
+          v-slots={{
+            body: () => <>
+              <t-text label="Description"></t-text>
+              <t-text label="Website"></t-text>
+              <t-text label="Topics"></t-text>
+              <div>Include in the home page</div>
+              <p>
+                <input class="mr-1" type="checkbox"></input>
+                Releases
+              </p>
+              <p>
+                <input class="mr-1" type="checkbox"></input>
+                Packages
+              </p>
+              <p>
+                <input class="mr-1" type="checkbox"></input>
+                Environments
+              </p>
+            </>,
+            footer: () => <>
+              <t-btn onClick={() => emit('close')}>Cancel</t-btn>
+              <t-btn save onClick={() => emit('close', {anyData: 'can be return'})}>Save changes</t-btn>
+            </>
+          }}/>
+    }
+  }
+  const rs = await dialog.show(predefinedComponent)
   if (rs) {
     text.value += 'dialog close with data: ' + JSON.stringify(rs) + '\n'
   } else {

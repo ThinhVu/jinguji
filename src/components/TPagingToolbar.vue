@@ -14,7 +14,7 @@
 <script setup>
 import _ from 'lodash';
 import {computed} from 'vue';
-import Btn from './Btn.vue';
+import Btn from './TBtn.vue';
 
 const props = defineProps({
   page: Number,

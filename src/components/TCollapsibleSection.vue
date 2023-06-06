@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="fr ai-c py-1 clickable" style="gap: 6px" @click="toggle">
-      <icon v-if="showLeftCaret" color="#ddd">{{caretIcon}}</icon>
+      <t-icon v-if="showLeftCaret" color="#ddd">{{caretIcon}}</t-icon>
       <span @click="emit('titleClick')" style="color: #767676; font-size: 15px; font-weight: 600;">{{title}}</span>
-      <icon v-if="showRightCaret" color="#ddd">{{caretIcon}}</icon>
+      <t-icon v-if="showRightCaret" color="#ddd">{{caretIcon}}</t-icon>
       <slot name="more"></slot>
     </div>
     <template v-if="displayContent">

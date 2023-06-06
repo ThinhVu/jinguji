@@ -1,6 +1,6 @@
 import {v4} from 'uuid'
 import {ref, markRaw} from 'vue'
-import layer from '../Layer/layer'
+import layerService from './layer'
 
 const dialogState = ref([])
 
@@ -25,7 +25,7 @@ const show = (target) => {
         dialogState.value = dialogState.value.filter(dialog => dialog.__uuid !== dlgId)
         resolve(result)
       },
-      __zIndex: layer.getNextZIndex(),
+      __zIndex: layerService.getNextZIndex(),
       __data: data || {},
       __uuid: dlgId,
       __component: component
@@ -34,9 +34,9 @@ const show = (target) => {
 }
 
 const render = () => dialogState.value.map(dialog =>
-    <overlay key={dialog.__uuid} zIndex={dialog.__zIndex}>
+    <t-overlay key={dialog.__uuid} zIndex={dialog.__zIndex}>
       <dialog.__component onClose={dialog.__close} {...dialog.__data}/>
-    </overlay>)
+    </t-overlay>)
 
 export default {
   show,

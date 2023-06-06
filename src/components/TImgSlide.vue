@@ -4,9 +4,9 @@
       {{idx+1}} / {{props.media.length}}
     </div>
     <div class="w-100 fr ai-c fg-1" style="height: calc(100% - 50px)">
-      <icon :color="canPrev ? '#fff' : '#333'" @click="prev">fas fa-chevron-left@40</icon>
+      <t-icon :color="canPrev ? '#fff' : '#333'" @click="prev">fas fa-chevron-left@40</t-icon>
       <div class="f1"><imgx :src="src" class="h-100 mx-0"/></div>
-      <icon :color="canNext ? '#fff' : '#333'" @click="next">fas fa-chevron-right@40</icon>
+      <t-icon :color="canNext ? '#fff' : '#333'" @click="next">fas fa-chevron-right@40</t-icon>
     </div>
   </div>
 </template>

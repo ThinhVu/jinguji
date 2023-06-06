@@ -8,7 +8,7 @@ function parseIconData(iconData, propsColor) {
   }
   let part = 'icon'
 
-  for(let char of iconData) {
+  for (const char of iconData) {
     if (char === '@') {
       part = 'size'
     } else if (char === ':') {
@@ -20,7 +20,7 @@ function parseIconData(iconData, propsColor) {
 
   return {
     icon: iconPath.icon,
-    size: `${iconPath.size || 24}px`,
+    size: iconPath.size || '24px',
     color: iconPath.color || propsColor || '#000'
   }
 }
@@ -33,6 +33,7 @@ export default {
       const {icon, size, color} = parseIconData(iconData, props.color)
       const iconClass = [ props.class, icon, color.startsWith('.') && color.substr(1) ]
       const iconStyle = { width: size, height: size, fontSize: size, ...(color.startsWith('.') ? {} : { color }) }
+      console.log(iconStyle, iconClass)
       return <i class={iconClass} style={iconStyle} data-raw={iconData}/>
     }
   }

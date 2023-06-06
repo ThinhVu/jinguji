@@ -104,8 +104,16 @@ const layouts = [
 
 const borderRadius = [
   [/^br-(\d+)px$/, ([, d]) => ({'border-radius': `${d}px`})],
-  [/^br-(\d+)$/, ([, d]) => ({'border-radius': `${d / 2}em`})],
-  [/^br-(\d+)pt$/, ([, pt]) => ({'border-radius': `${pt}%`})],
+  [/^btlr-(\d+)px$/, ([, d]) => ({'border-top-left-radius': `${d}px`})],
+  [/^btrr-(\d+)px$/, ([, d]) => ({'border-top-right-radius': `${d}px`})],
+  [/^bblr-(\d+)px$/, ([, d]) => ({'border-bottom-left-radius': `${d}px`})],
+  [/^bbrr-(\d+)px$/, ([, d]) => ({'border-bottom-right-radius': `${d}px`})],
+
+  [/^br-(\d+)$/, ([, d]) => ({'border-radius': `${d * 4}px`})],
+  [/^btlr-(\d+)$/, ([, d]) => ({'border-top-left-radius': `${d * 4}px`})],
+  [/^btrr-(\d+)$/, ([, d]) => ({'border-top-right-radius': `${d * 4}px`})],
+  [/^bblr-(\d+)$/, ([, d]) => ({'border-bottom-left-radius': `${d * 4}px`})],
+  [/^bbrr-(\d+)$/, ([, d]) => ({'border-bottom-right-radius': `${d * 4}px`})],
 ]
 
 const position = [
@@ -121,20 +129,20 @@ const position = [
 ]
 
 const spacing = [
-  [/^pt-(\d+)$/, ([, d]) => ({'padding-top': `${d / 2}em`})],
-  [/^pl-(\d+)$/, ([, d]) => ({'padding-left': `${d / 2}em`})],
-  [/^pb-(\d+)$/, ([, d]) => ({'padding-bottom': `${d / 2}em`})],
-  [/^pr-(\d+)$/, ([, d]) => ({'padding-right': `${d / 2}em`})],
-  [/^px-(\d+)$/, ([, d]) => ({'padding-left': `${d / 2}em`, 'padding-right': `${d / 2}em`})],
-  [/^py-(\d+)$/, ([, d]) => ({'padding-top': `${d / 2}em`, 'padding-bottom': `${d / 2}em`})],
+  [/^pt-(\d+)$/, ([, d]) => ({'padding-top': `${d * 4}px`})],
+  [/^pl-(\d+)$/, ([, d]) => ({'padding-left': `${d * 4}px`})],
+  [/^pb-(\d+)$/, ([, d]) => ({'padding-bottom': `${d * 4}px`})],
+  [/^pr-(\d+)$/, ([, d]) => ({'padding-right': `${d * 4}px`})],
+  [/^px-(\d+)$/, ([, d]) => ({'padding-left': `${d * 4}px`, 'padding-right': `${d * 4}px`})],
+  [/^py-(\d+)$/, ([, d]) => ({'padding-top': `${d * 4}px`, 'padding-bottom': `${d * 4}px`})],
 
-  [/^mt-(\d+)$/, ([, d]) => ({'margin-top': `${d / 2}em`})],
-  [/^ml-(\d+)$/, ([, d]) => ({'margin-left': `${d / 2}em`})],
-  [/^mb-(\d+)$/, ([, d]) => ({'margin-bottom': `${d / 2}em`})],
-  [/^mr-(\d+)$/, ([, d]) => ({'margin-right': `${d / 2}em`})],
-  [/^mx-(\d+)$/, ([, d]) => ({'margin-left': `${d / 2}em`, 'margin-right': `${d / 2}em`})],
-  [/^my-(\d+)$/, ([, d]) => ({'margin-top': `${d / 2}em`, 'margin-bottom': `${d / 2}em`})],
-  ['mx-a', {margin: '0 auto'}],
+  [/^mt-(\d+)$/, ([, d]) => ({'margin-top': `${d * 4}px`})],
+  [/^ml-(\d+)$/, ([, d]) => ({'margin-left': `${d * 4}px`})],
+  [/^mb-(\d+)$/, ([, d]) => ({'margin-bottom': `${d * 4}px`})],
+  [/^mr-(\d+)$/, ([, d]) => ({'margin-right': `${d * 4}px`})],
+  [/^mx-(\d+)$/, ([, d]) => ({'margin-left': `${d * 4}px`, 'margin-right': `${d * 4}px`})],
+  [/^my-(\d+)$/, ([, d]) => ({'margin-top': `${d * 4}px`, 'margin-bottom': `${d * 4}px`})],
+  ['mx-a', {'margin-left': 'auto', 'margin-right': 'auto'}],
 ]
 
 const text = [

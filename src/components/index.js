@@ -1,52 +1,74 @@
-import Overlay from './Layer/Overlay.vue';
-import System from './System/System.vue';
+import TBaseDialog from './TBaseDialog.vue';
+export {TBaseDialog}
 
-import Btn from './Btn.vue';
-import CollapsibleSection from './CollapsibleSection.vue';
-import Emojis from './Emojis.vue';
-import HLine from './HLine.vue';
-import Icon from './Icon.vue';
-import Imgx from './Imgx.vue';
-import ImgxSlide from './ImgxSlide.vue';
-import Load from './Load.vue';
-import LoadMore from './LoadMore.vue';
-import Guard from './Guard.vue';
-import PageContent from './PageContent.vue';
-import PageHeader from './PageHeader.vue';
-import PagingToolbar from './PagingToolbar.vue';
-import ProgressCircular from './ProgressCircular.vue';
-import PulseBlock from './PulseBlock.vue';
-import Rating from './Rating.vue';
-import Spacer from './Spacer.vue';
-import Switch from './Switch.vue';
-import TimeFormat from './TimeFormat.vue';
-import Tooltip from './Tooltip.vue';
-import Txt from './Txt.vue';
-import TxtArea from './TxtArea.vue';
+import TBtn from './TBtn.vue';
+export {TBtn}
 
-export default {
-  Btn,
-  CollapsibleSection,
-  Emojis,
-  Guard,
-  HLine,
-  Icon,
-  Imgx,
-  ImgxSlide,
-  Load,
-  LoadMore,
-  Overlay,
-  PageHeader,
-  PageContent,
-  PagingToolbar,
-  ProgressCircular,
-  PulseBlock,
-  Rating,
-  Spacer,
-  Switch,
-  System,
-  TimeFormat,
-  Tooltip,
-  Txt,
-  TxtArea,
-}
+import TCollapsibleSection from './TCollapsibleSection.vue';
+export {TCollapsibleSection}
+
+import TEmojis from './TEmojis.vue';
+export {TEmojis}
+
+import TIcon from './TIcon.vue';
+export {TIcon}
+
+import TImg from './TImg.vue';
+export {TImg}
+
+import TImgSlide from './TImgSlide.vue';
+export {TImgSlide}
+
+import TGuard from './TGuard.vue';
+export {TGuard}
+
+import TLoading from './TLoading.vue';
+export {TLoading}
+
+import TLoadMore from './TLoadMore.vue';
+export {TLoadMore}
+
+import TOverlay from './TOverlay.vue';
+export {TOverlay}
+
+import TPageContent from './TPageContent.vue';
+export {TPageContent}
+
+import TPageHeader from './TPageHeader.vue';
+export {TPageHeader}
+
+import TPagingToolbar from './TPagingToolbar.vue';
+export {TPagingToolbar}
+
+import TPulseBlock from './TPulseBlock.vue';
+export {TPulseBlock}
+
+import TRating from './TRating.vue';
+export {TRating}
+
+import TReadableMs from './TReadableMs.vue';
+export {TReadableMs}
+
+import TSpacer from './TSpacer.vue';
+export {TSpacer}
+
+import TSpinner from './TSpinner.vue';
+export {TSpinner}
+
+import TSwitch from './TSwitch.vue';
+export {TSwitch}
+
+import TSystem from './TSystem.vue';
+export {TSystem}
+
+import TText from './TText.vue';
+export {TText}
+
+import TTimeFormat from './TTimeFormat.vue';
+export {TTimeFormat}
+
+import TTimeSpan from './TTimeSpan.vue';
+export {TTimeSpan}
+
+import TTooltip from './TTooltip.vue';
+export {TTooltip}

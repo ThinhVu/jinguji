@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100vw h-100vh fr ai-c fix top-0 left-0" :style="{zIndex}" @click="handleOnClick">
+  <div class="w-100vw h-100vh fr ai-c fix top-0 left-0 bc:#1f232880" :style="{zIndex}" @click="handleOnClick">
     <slot></slot>
   </div>
 </template>

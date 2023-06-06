@@ -3,7 +3,7 @@
  * https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.messagebox.show
  */
 import {ref} from 'vue'
-import layer from '../Layer/layer';
+import layerService from './layer';
 
 const Buttons = {
   OK: 6,
@@ -43,12 +43,22 @@ const msgData = ref({
 });
 
 const renderBtn = (uiLabel, onClick, isDefaultBtn) => {
-  const style = {
-    backgroundColor: isDefaultBtn ? '#1271ff': '#e0e0e0',
-    color: isDefaultBtn ? '#fff' : '#1f1f1f',
-    minWidth: '100px',
+  const attrs = {
+    primary: isDefaultBtn,
+    secondary: !isDefaultBtn
   }
-  return <btn class="px-2 py-1 clickable ta-c" style={style} onClick={onClick}>{uiLabel.toUpperCase()}</btn>
+  const style = {
+    minWidth: '100px',
+    textTransform: 'capitalize'
+  }
+  return (
+      <t-btn
+          {...attrs}
+          onClick={onClick}
+          class="px-2 py-1 clickable ta-c" style={style}>
+        {uiLabel}
+      </t-btn>
+  )
 }
 
 const btnRenders = {
@@ -79,33 +89,31 @@ const btnRenders = {
 };
 const iconRenders = {
   [Icons.None]: () => null,
-  [Icons.Success]: () => <icon>fas fa-check-circle:#43a047</icon>,
-  [Icons.Information]: () => <icon>fas fa-info-circle:#039be5</icon>,
-  [Icons.Warning]: () => <icon>fas fa-exclamation-triangle:#d32f2f</icon>,
-  [Icons.Error]: () => <icon>fas fa-times-circle@48px:#d32f2f</icon>,
-  [Icons.Question]: () => <icon>fas fa-question-circle:#757575</icon>,
+  [Icons.Success]: () => <t-icon>fas fa-check-circle:#43a047</t-icon>,
+  [Icons.Information]: () => <t-icon>fas fa-info-circle:#039be5</t-icon>,
+  [Icons.Warning]: () => <t-icon>fas fa-exclamation-triangle:#d32f2f</t-icon>,
+  [Icons.Error]: () => <t-icon>fas fa-times-circle@48px:#d32f2f</t-icon>,
+  [Icons.Question]: () => <t-icon>fas fa-question-circle:#757575</t-icon>,
 };
 
 const render = () => {
-  if (!msgData.value.show)
+  if (!msgData.value.show) {
     return
+  }
 
-  return <overlay zIndex={msgData.value.zIndex}>
-    <div class="bc:#ddd br-1 my-0 mx-a" style={{width: '70%', maxWidth: '500px'}}>
-      <div class="px-2 py-2" style="border-bottom: 1px solid #e0e0e0">
-        <b>{msgData.value.title}</b>
-      </div>
-      <div class="px-2 py-2">
-        <div class="fr jc-fs fg-12px">
-          {iconRenders[msgData.value.icon]()}
-          {typeof (msgData.value.content) === 'function' ? msgData.value.content() : msgData.value.content}
-        </div>
-      </div>
-      <div class="fr ai-c jc-fe fg-6px px-2 py-2">
-        {btnRenders[msgData.value.btn](msgData.value.resultHandlerFn)}
-      </div>
-    </div>
-  </overlay>
+  return <t-overlay zIndex={msgData.value.zIndex}>
+    <t-base-dialog
+        title={msgData.value.title}
+        showCloseIcon={false}
+        style={{width: '70%', maxWidth: '500px'}}
+        v-slots={{
+          body: () => <div class="fr jc-fs fg-12px min-h-100px">
+            {iconRenders[msgData.value.icon]()}
+            {typeof (msgData.value.content) === 'function' ? msgData.value.content() : msgData.value.content}
+          </div>,
+          footer: () => btnRenders[msgData.value.btn](msgData.value.resultHandlerFn)
+        }}/>
+  </t-overlay>
 };
 
 function show(title, content, btn, icon) {
@@ -115,7 +123,7 @@ function show(title, content, btn, icon) {
       content,
       btn: btn || Buttons.YesNo,
       icon: icon || Icons.Question,
-      zIndex: layer.getNextZIndex(),
+      zIndex: layerService.getNextZIndex(),
       resultHandlerFn: result => {
         msgData.value.show = false
         resolve(result)

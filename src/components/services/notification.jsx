@@ -33,7 +33,7 @@ export function info(content, options) {
     options = {}
   options.title = 'Info'
   options.color = '#c7d8f1'
-  options.prepend = () => <icon class="mr-2" color="#3072d1">fas fa-info-circle@20</icon>
+  options.prepend = () => <t-icon class="mr-2" color="#3072d1">fas fa-info-circle@20px</t-icon>
   showNotify(content, options)
 }
 export function warn(content, options) {
@@ -41,14 +41,14 @@ export function warn(content, options) {
     options = {}
   options.color = '#fff3cd'
   options.title = 'Warning'
-  options.prepend = () => <icon class="mr-2" color="#dc8717">fas fa-exclamation-triangle@20</icon>
+  options.prepend = () => <t-icon class="mr-2" color="#dc8717">fas fa-exclamation-triangle@20px</t-icon>
   showNotify(content, options)
 }
 export function success(content, options) {
   if (!options) options = {}
   options.color = '#d8f6d2'
   options.title = 'Success'
-  options.prepend = () => <icon class="mr-2" color="#47d130">fas fa-check@20</icon>
+  options.prepend = () => <t-icon class="mr-2" color="#47d130">fas fa-check@20px</t-icon>
   showNotify(content, options)
 }
 export function err(e, options) {
@@ -56,7 +56,7 @@ export function err(e, options) {
     options = {}
   options.title = 'Error'
   options.color = '#f6cfd3'
-  options.prepend = () => <icon class="mr-2" color="#ee717c">fas fa-times-circle@20</icon>
+  options.prepend = () => <t-icon class="mr-2" color="#ee717c">fas fa-times-circle@20px</t-icon>
   showNotify(getErrorMsg(e), options)
 }
 function getErrorMsg(e) {
@@ -74,16 +74,17 @@ export function render() {
   const marginTop = i => ({marginTop: ((i * 80) + 10 + 'px'), marginRight: '10px'})
   return <>
     {Object.values(notifyState.value).map((notify, i) =>
-        <div class="fix fr ai-c jc-c px-2 py-2 br-1 top-0 right-0" style={[marginTop(i), {backgroundColor: notify.color}]}>
+        <div class="fix fr ai-c jc-c px-4 py-4 br-1 top-0 right-0"
+             style={[marginTop(i), {backgroundColor: notify.color}]}>
           <div class="fr ai-fs">
             {notify.prepend && notify.prepend()}
             <div class="f1 max-w-360px">
-              {notify.title && <p class="fr ai-c c:#444 fw-700">
-                <span>{notify.title}</span>
+              {notify.title && <p class="fr ai-c c:#444 fw-700 mb-1">
+                {notify.title}
               </p>}
               <p class="c:#444">{notify.content}</p>
             </div>
-            {notify.off && <icon class="ml-2" onClick={notify.off}>fas fa-times@20:#444</icon>}
+            {notify.off && <t-icon class="ml-8" onClick={notify.off}>fas fa-times@20:#444</t-icon>}
           </div>
         </div>)}
   </>

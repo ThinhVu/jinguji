@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-const props = defineProps({value: [Date, String]})
+const props = defineProps({value: [Number, String]})
 function readableMs(ms) {
   let remain = ms;
   const days = Math.floor(ms / 86400000);
