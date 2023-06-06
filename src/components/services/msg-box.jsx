@@ -6,21 +6,21 @@ import {ref} from 'vue'
 import layerService from './layer';
 
 const Buttons = {
-  OK: 6,
   OKCancel: 1,
   AbortRetryIgnore: 2,
   YesNoCancel: 3,
   YesNo: 4,
   RetryCancel: 5,
+  OK: 6,
 };
 
 const Icons = {
-  None: 0,
   Information: 1,
   Warning: 2,
   Error: 3,
   Question: 4,
   Success: 5,
+  None: 6,
 };
 
 const Results = {
@@ -92,7 +92,7 @@ const iconRenders = {
   [Icons.Success]: () => <t-icon>fas fa-check-circle:#43a047</t-icon>,
   [Icons.Information]: () => <t-icon>fas fa-info-circle:#039be5</t-icon>,
   [Icons.Warning]: () => <t-icon>fas fa-exclamation-triangle:#d32f2f</t-icon>,
-  [Icons.Error]: () => <t-icon>fas fa-times-circle@48px:#d32f2f</t-icon>,
+  [Icons.Error]: () => <t-icon>fas fa-times-circle:#d32f2f</t-icon>,
   [Icons.Question]: () => <t-icon>fas fa-question-circle:#757575</t-icon>,
 };
 
