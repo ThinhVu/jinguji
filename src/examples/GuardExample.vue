@@ -29,7 +29,7 @@
 <script setup>
 const items = [
   {_id: 1, name: 'Item 1', tax: [13, 13]},
-  {_id: 2, name: 'Item 2'},
+  {_id: 2, name: 'Item 2'}, // tax missing
   {_id: 3, name: 'Item 3', tax: [13, 13]}
 ]
 </script>

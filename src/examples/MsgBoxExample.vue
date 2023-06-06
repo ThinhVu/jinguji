@@ -29,20 +29,16 @@ const showMsgBoxWithCustom1 = async () => {
   const rs = await msgBox.show(
       'Confirm',
       'Are you sure you want to delete this item?',
-      msgBox.Buttons.AbortRetryIgnore,
-      msgBox.Icons.Warning
+      msgBox.Buttons.YesNoCancel,
+      msgBox.Icons.Error
   )
-  if (rs === msgBox.Results.ignore) {
-    text.value += 'ok\n'
-  } else {
-    text.value += 'cancel\n'
-  }
+  text.value += `${rs}\n`
 }
 
 const showMsgBoxWithCustom2 = async () => {
   const rs = await msgBox.show(
       'Confirm',
-      () => <div class="bc:red px-2 py-2">
+      () => <div class="bc:#ded px-2 py-2">
         <p>Some paragraph</p>,
         <div class="fr ai-c fg-10px">
           <t-btn>Click me</t-btn>
