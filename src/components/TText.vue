@@ -5,14 +5,14 @@
         v-if="multiLine"
         :value="v" @input="updateV"
         :placeholder="placeholder"
-        style="border: none; outline: none; background: transparent;  user-select: none;"
-        :cols="cols" :rows="rows" class="t-text-input"/>
+        style="outline: none; user-select: none;"
+        :cols="cols" :rows="rows" class="t-text-input br-1"/>
     <input
         v-else
         :value="v"
         @input="updateV"
         :placeholder="placeholder"
-        style="outline: none; height: 32px; user-select: none;" class="t-text-input br-1">
+        style="outline: none; height: 32px; user-select: none;" class="t-text-input single-line br-1">
   </div>
 </template>
 
@@ -51,6 +51,9 @@ const updateV = e => {
   padding: 8px;
   border: 1px solid #d0d7de;
   box-shadow: inset 0 1px 0 rgba(208,215,222,0.2);
+}
+
+.single-line {
   width: 100%;
 }
 </style>
