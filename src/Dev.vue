@@ -1,15 +1,17 @@
 <template>
-  <div class="w-100vw h-100vh fc fg-6px px-2 py-2">
-    <div class="fr ai-c fg-6px pb-2 fw-w"
-         style="border-bottom: 5px solid red">
-      <t-btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
-        {{k}}
-      </t-btn>
+  <t-system>
+    <div class="w-100vw h-100vh fc fg-6px px-2 py-2">
+      <div class="fr ai-c fg-6px pb-2 fw-w"
+           style="border-bottom: 5px solid red">
+        <t-btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
+          {{k}}
+        </t-btn>
+      </div>
+      <div>
+        <component :is="demos[view]"/>
+      </div>
     </div>
-    <div>
-      <component :is="demos[view]"/>
-    </div>
-  </div>
+  </t-system>
 </template>
 
 <script setup>
@@ -17,17 +19,20 @@ import {ref} from 'vue';
 import DialogExample from './examples/DialogExample.vue';
 import MsgBoxExample from './examples/MsgBoxExample.vue';
 import NotificationExample from './examples/NotificationExample.vue';
+import LoadingExample from './examples/LoadingExample.vue';
 import LayoutExample from './examples/LayoutExample.vue';
 import GuardExample from './examples/GuardExample.vue';
 import TrackExample from './examples/TrackExample.vue';
 import ButtonExample from './examples/ButtonExample.vue';
 import CollapsibleSectionExample from './examples/CollapsibleSectionExample.vue';
 import UncategoryExample from './examples/UncategoryExample.vue';
+import TSystem from './components/TSystem.vue';
 
 const demos = {
   DialogExample,
   MsgBoxExample,
   NotificationExample,
+  LoadingExample,
   LayoutExample,
   GuardExample,
   TrackExample,

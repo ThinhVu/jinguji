@@ -32,7 +32,7 @@ const layouts = [
   [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px`})],
 
   [/^h-(\d+)$/, ([, d]) => ({height: `${d}%`})],
-  [/^h-(\d+)$/, ([, d]) => ({width: `${d}%`})],
+  [/^w-(\d+)$/, ([, d]) => ({width: `${d}%`})],
 
   ['h-100vh', {height: '100vh'}],
   ['w-100vw', {width: '100vw'}],

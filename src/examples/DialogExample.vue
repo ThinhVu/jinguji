@@ -7,11 +7,11 @@
   </div>
   <t-text multi-line v-model="text" cols="50" rows="20"
           style="border: 1px solid red" class="mt-3"/>
-  <t-system/>
 </template>
 <script setup lang="jsx">
-import {ref} from 'vue'
-import dialog from '../components/services/dialog';
+import {ref, inject} from 'vue'
+
+const {dialog} = inject('TSystem')
 
 const text = ref('')
 

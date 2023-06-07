@@ -10,7 +10,8 @@
   <t-system/>
 </template>
 <script setup lang="jsx">
-import notification from '../components/services/notification';
+import {inject} from 'vue';
+const {notification} = inject('TSystem')
 
 const showNotificationAutoCloseInAFewSeconds = () => notification.success('Oops! I\'ll disappear soon')
 const showNotificationNeverClose = () => notification.success('Oops! I\'m immortal', {duration: 0})

@@ -1,19 +1,36 @@
 <script lang="jsx">
-import dialogService from './services/dialog'
-import msgBoxService from './services/msg-box'
-import notificationService from './services/notification'
-import TIcon from './TIcon.vue'
-import TBtn from './TBtn.vue';
-import TOverlay from './TOverlay.vue'
+import {provide} from 'vue';
+import useLayer from '../composables/useLayer';
+import useDialog from '../composables/useDialog';
+import useMsgBox from '../composables/useMsgBox';
+import useNotification from '../composables/useNotification';
+import useLoading from '../composables/useLoading';
 
 export default {
-  components: {TBtn, TIcon, TOverlay},
-  setup() {
+  setup(_, {slots}) {
+    const layer = useLayer()
+    const dialog = useDialog(layer)
+    const msgBox = useMsgBox(layer)
+    const notification = useNotification()
+    const loading = useLoading()
+
+    provide('TSystem', {
+      dialog,
+      msgBox,
+      notification,
+      loading
+    })
+
     return () => <>
-      {dialogService.render()}
-      {msgBoxService.render()}
-      {notificationService.render()}
+      {slots.default && slots.default()}
+      {dialog.render()}
+      {msgBox.render()}
+      {notification.render()}
     </>
   }
 }
+
+
+
+
 </script>

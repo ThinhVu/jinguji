@@ -1,14 +1,19 @@
 <template>
-  <span v-if="title && isLoading" class="mr-1">{{title}}</span>
-  <t-spinner v-if="isLoading" size="20px"/>
+  <div v-if="isLoading">
+    <slot name="loading">
+      <div class="fr ai-c">
+        <t-spinner size="20px" class="mr-1"/>
+        <span v-if="title" class="mr-1">{{title}}</span>
+      </div>
+    </slot>
+  </div>
   <template v-else>
     <slot/>
   </template>
 </template>
 <script setup>
-import {computed} from 'vue';
-import loading from './services/loading';
-import TSpinner from './TSpinner.vue';
-const props = defineProps({ action: String, title: String })
+import {computed, inject} from 'vue';
+const props = defineProps({ action: [String, Symbol], title: String })
+const {loading} = inject('TSystem')
 const isLoading = computed(() => loading.loading(props.action))
 </script>

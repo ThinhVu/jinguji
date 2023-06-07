@@ -7,13 +7,11 @@
     </div>
   </div>
   <t-text multi-line v-model="text" cols="50" rows="20" style="border: 1px solid red" class="mt-3" />
-  <t-system/>
 </template>
 <script setup lang="jsx">
-import {ref} from 'vue'
-import msgBox from '../components/services/msg-box';
-import TText from '../components/TText.vue';
+import {ref, inject} from 'vue'
 
+const {msgBox} = inject('TSystem')
 const text = ref('')
 
 const showDefaultMsgBox = async () => {
@@ -34,7 +32,6 @@ const showMsgBoxWithCustom1 = async () => {
   )
   text.value += `${rs}\n`
 }
-
 const showMsgBoxWithCustom2 = async () => {
   const rs = await msgBox.show(
       'Confirm',
