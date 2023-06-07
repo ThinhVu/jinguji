@@ -18,6 +18,8 @@
           v-model="subscription"
           item-text="text"
           item-value="value"/>
+      <t-date-picker/>
+      <t-time-picker/>
     </div>
   </div>
 </template>

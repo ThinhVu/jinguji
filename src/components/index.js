@@ -10,6 +10,9 @@ export {TCheckBox}
 import TCollapsibleSection from './TCollapsibleSection.vue';
 export {TCollapsibleSection}
 
+import TDatePicker from './TDatePicker.vue';
+export {TDatePicker}
+
 import TEmojis from './TEmojis.vue';
 export {TEmojis}
 
@@ -75,6 +78,9 @@ export {TText}
 
 import TTimeFormat from './TTimeFormat.vue';
 export {TTimeFormat}
+
+import TTimePicker from './TTimePicker.vue';
+export {TTimePicker}
 
 import TTimeSpan from './TTimeSpan.vue';
 export {TTimeSpan}
