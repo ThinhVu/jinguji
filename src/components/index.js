@@ -4,6 +4,9 @@ export {TBaseDialog}
 import TBtn from './TBtn.vue';
 export {TBtn}
 
+import TCheckBox from './TCheckBox.vue';
+export {TCheckBox}
+
 import TCollapsibleSection from './TCollapsibleSection.vue';
 export {TCollapsibleSection}
 
@@ -40,8 +43,14 @@ export {TPageHeader}
 import TPagingToolbar from './TPagingToolbar.vue';
 export {TPagingToolbar}
 
+import TPassword from './TPassword.vue';
+export {TPassword}
+
 import TPulseBlock from './TPulseBlock.vue';
 export {TPulseBlock}
+
+import TRadio from './TRadio.vue';
+export {TRadio}
 
 import TRating from './TRating.vue';
 export {TRating}

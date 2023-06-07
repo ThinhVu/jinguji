@@ -1,0 +1,45 @@
+<template>
+  <div :style="{backgroundColor: bc}">
+    <t-switch v-model="darkMode" label="Dark mode"/>
+
+    <hr class="my-2"/>
+
+    <div class="fc fg-32px px-2 py-2">
+      <t-text v-model="username" label="Username" placeholder="enter your username"/>
+      <t-password v-model="password" label="Password" placeholder="qweqwqweqwesd"/>
+      <t-check-box v-model="rememberPwd" label="Remember password"/>
+      <t-radio
+          label="Work hours per day"
+          :options="workHoursPerDayOptions"
+          v-model="workHoursPerDay" row/>
+      <t-radio
+          label="Subscription option"
+          :options="subscriptionOptions"
+          v-model="subscription"
+          item-text="text"
+          item-value="value"/>
+    </div>
+  </div>
+</template>
+<script setup>
+import {ref, computed} from 'vue'
+
+const darkMode = ref(false)
+const bc = computed(() => darkMode.value ? '#444' : '#fff')
+
+const username = ref('')
+const password = ref('')
+const rememberPwd = ref(false)
+
+const workHoursPerDay = ref(1)
+const workHoursPerDayOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const subscription = ref()
+const subscriptionOptions = [
+  {text: 'Weekly', value: 'w'},
+  {text: 'Monthly', value: 'm'},
+  {text: 'Annually', value: 'y'},
+]
+</script>
+<style scoped>
+</style>

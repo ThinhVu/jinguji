@@ -1,9 +1,9 @@
 <template>
-  <div class="fr ai-c">
-    <span @click="toggle" class="clickable" :style="switchStyle">
-      <span :style="thumbStyle"/>
+  <div class="t-switch fr ai-c clickable">
+    <span @click="toggle" :style="switchStyle">
+      <div :style="thumbStyle" class="t-thumb"/>
     </span>
-    <span class="mr-1">{{label}}</span>
+    <span class="ml-2" style="user-select: none" @click="toggle">{{label}}</span>
   </div>
 </template>
 
@@ -16,9 +16,9 @@ const toggle = () => emit('update:modelValue', !props.modelValue)
 
 const switchStyle = computed(() => {
   const style = {
-    width: '50px',
-    height: '25px',
-    borderRadius: '25px',
+    width: '40px',
+    height: '22px',
+    borderRadius: '22px',
   }
   return props.modelValue ? {
     ...style,
@@ -30,15 +30,15 @@ const switchStyle = computed(() => {
 })
 const thumbStyle = computed(() => {
   const style = {
-    height: '21px',
-    width: '21px',
-    borderRadius: '21px',
+    height: '18px',
+    width: '18px',
+    borderRadius: '18px',
     marginTop: '2px',
     boxShadow: '0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)'
   }
   return props.modelValue ? {
     ...style,
-    marginLeft: '27px',
+    marginLeft: '19px',
     background: '#1271FF',
   } : {
     ...style,
@@ -47,3 +47,11 @@ const thumbStyle = computed(() => {
   }
 })
 </script>
+
+<style scoped>
+.t-thumb {
+  transition:
+    margin-left 0.25s ease-in-out,
+    background 0.25s ease-in-out;
+}
+</style>
