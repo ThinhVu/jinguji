@@ -15,6 +15,8 @@ const styles = computed(() => ({
   'border-right-color': props.color || '#0058e6',
   'width': props.size || '20px',
   'height': props.size || '20px',
+  'min-width': props.size || '20px',
+  'min-height': props.size || '20px',
   'border-width': props.thickness || '3px'
 }))
 </script>
