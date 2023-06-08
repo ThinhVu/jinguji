@@ -10,10 +10,12 @@
     <t-readable-ms :value="998031232"/>
     <t-spinner/>
   </div>
+  <t-progress :value="50"/>
 </template>
 <script setup>
 import dayjs from 'dayjs'
 import {onMounted} from 'vue';
+import TProgress from '../components/TProgress.vue';
 
 const times = dayjs().subtract(80, 'minute').toDate()
 

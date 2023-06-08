@@ -49,6 +49,9 @@ export {TPagingToolbar}
 import TPassword from './TPassword.vue';
 export {TPassword}
 
+import TProgress from './TProgress.vue';
+export {TProgress}
+
 import TPulseBlock from './TPulseBlock.vue';
 export {TPulseBlock}
 
