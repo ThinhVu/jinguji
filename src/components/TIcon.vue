@@ -33,7 +33,6 @@ export default {
       const {icon, size, color} = parseIconData(iconData, props.color)
       const iconClass = [ props.class, icon, color.startsWith('.') && color.substr(1) ]
       const iconStyle = { width: size, height: size, fontSize: size, ...(color.startsWith('.') ? {} : { color }) }
-      console.log(iconStyle, iconClass)
       return <i class={iconClass} style={iconStyle} data-raw={iconData}/>
     }
   }
