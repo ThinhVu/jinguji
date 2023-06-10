@@ -1,3 +1,6 @@
+import TBackOffice from './TBackOffice.vue';
+export {TBackOffice}
+
 import TBaseDialog from './TBaseDialog.vue';
 export {TBaseDialog}
 
