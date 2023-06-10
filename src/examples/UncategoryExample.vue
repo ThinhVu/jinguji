@@ -2,6 +2,7 @@
   <t-icon>fas fa-times@40:#000</t-icon>
   <t-emojis/>
   <t-img src="https://picsum.photos/200/300" style="width: 200px; height: 300px"/>
+  <t-img src="https://picsum.photos21/200/300" style="width: 200px; height: 300px"/>
   <t-pulse-block class="h-30px"></t-pulse-block>
   <div class="fr ai-c fg-10px">
     <t-rating/>
