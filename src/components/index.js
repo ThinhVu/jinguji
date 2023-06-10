@@ -79,6 +79,9 @@ export {TSwitch}
 import TSystem from './TSystem.vue';
 export {TSystem}
 
+import TTable from './TTable.vue';
+export {TTable}
+
 import TText from './TText.vue';
 export {TText}
 
