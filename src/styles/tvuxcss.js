@@ -166,7 +166,7 @@ const layering = [
   [/^z-index-(\d+)$/, ([, d]) => ({'z-index': d})]
 ]
 
-export default [
+module.exports = [
   ...behaviors,
   ...colors,
   ...layouts,
