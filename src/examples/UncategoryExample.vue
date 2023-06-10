@@ -11,11 +11,26 @@
     <t-spinner/>
   </div>
   <t-progress :value="50"/>
+  <t-table>
+    <thead>
+    <tr>
+      <th>header 1</th>
+      <th>header 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>item 1</td>
+      <td>item 2</td>
+    </tr>
+    </tbody>
+  </t-table>
 </template>
 <script setup>
 import dayjs from 'dayjs'
 import {onMounted} from 'vue';
 import TProgress from '../components/TProgress.vue';
+import TTable from '../components/TTable.vue';
 
 const times = dayjs().subtract(80, 'minute').toDate()
 
