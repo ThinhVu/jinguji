@@ -1,18 +1,21 @@
 <template>
   <div class="backoffice h-100vh v-100vw">
-    <t-page-header></t-page-header>
+    <t-page-header>
+      <slot name="header"/>
+    </t-page-header>
     <t-page-content>
       <div class="fr h-100 w-100">
         <div class="fc ovf-y-s hide-scroll-bar sidebar px-1 py-1">
+          <slot name="sidebar-header"></slot>
           <div v-for="(item, i) in sidebarItems"
                class="fr ai-c px-2 py-1 clickable sidebar-item"
                :class="selectedSidebarItemIdx === i && 'sidebar-item--selected'"
                @click="selectSidebarItem(i)">
-            <icon class="item-icon">{{ item.icon }}</icon>
+            <t-icon class="item-icon">{{ item.icon }}</t-icon>
             <span class="item-text">{{ item.title }}</span>
           </div>
-          <spacer/>
-          <slot></slot>
+          <t-spacer/>
+          <slot name="sidebar-footer"></slot>
         </div>
         <div class="ovf-h content">
           <SelectedComponent/>
