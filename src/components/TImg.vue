@@ -2,9 +2,9 @@
   <span>
     <img draggable="false" v-show="imgState === 'loaded'" :style="mediaStyle" ref="image" @click="emit('click')"/>
     <t-pulse-block v-if="imgState === 'loading'" :style="mediaStyle"/>
-    <div v-if="imgState === 'error'" class="fc ai-c jc-c bc:#ddd" :style="{...mediaStyle, border: '1px solid #aaa'}">
+    <div v-if="imgState === 'error'" class="fc ai-c jc-c ta-c bc:#ddd" :style="{...mediaStyle, border: '1px solid #aaa'}">
       <t-icon class="mb-2">fas fa-image@40px</t-icon>
-      Failed to load
+      <p style="font-size: 12px">Failed to load</p>
     </div>
   </span>
 </template>
