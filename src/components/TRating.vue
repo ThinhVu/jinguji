@@ -1,13 +1,13 @@
 <template>
   <span class="clickable">
-    <t-icon v-for="i in _.range(1, max + 1)"
+    <t-icon v-for="i in range(1, max + 1)"
           style="margin-left: 5px"
           :color="i <= iV ? '#fab23d': 'gray'"
           @click="updateV(i)">fa fa-star@20</t-icon>
   </span>
 </template>
 <script setup>
-import _ from 'lodash';
+import {range} from 'lodash-es';
 import {ref, watch} from 'vue';
 import TIcon from './TIcon.vue';
 

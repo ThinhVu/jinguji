@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup>
-import _ from 'lodash';
+import {debounce} from 'lodash-es';
 import {ref, computed, watch} from 'vue';
 
 const props = defineProps({
@@ -20,7 +20,7 @@ const props = defineProps({
   debounceMs: Number,
 })
 const emit = defineEmits(['update:modelValue'])
-const emitModelValue = computed(() => _.debounce(v => emit('update:modelValue', v), props.debounceMs || 0))
+const emitModelValue = computed(() => debounce(v => emit('update:modelValue', v), props.debounceMs || 0))
 const plh = '************************************'
 const pwdPlaceHolder = computed(() => plh.substr(0, props.placeholder ? props.placeholder.length: 0))
 

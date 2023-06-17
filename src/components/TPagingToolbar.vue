@@ -12,7 +12,7 @@
   </template>
 </template>
 <script setup>
-import _ from 'lodash';
+import {round} from 'lodash-es';
 import {computed} from 'vue';
 import Btn from './TBtn.vue';
 
@@ -23,7 +23,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:page'])
 
-const totalPages = computed(() => _.round(props.totalItems / props.itemsPerPage + 0.5, 0))
+const totalPages = computed(() => round(props.totalItems / props.itemsPerPage + 0.5, 0))
 
 const canPrev = computed(() => props.page > 1)
 const firstPage = () => emit('update:page', 1);

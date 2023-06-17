@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import _ from 'lodash';
+import {debounce} from 'lodash-es';
 import {ref, computed, watch} from 'vue';
 
 const props = defineProps({
@@ -34,7 +34,7 @@ const props = defineProps({
   rows: [Number, String],
 })
 const emit = defineEmits(['update:modelValue'])
-const emitModelValue = computed(() => _.debounce(v => emit('update:modelValue', v), props.debounceMs || 0))
+const emitModelValue = computed(() => debounce(v => emit('update:modelValue', v), props.debounceMs || 0))
 
 const v = ref(props.modelValue)
 watch(() => props.modelValue, newV => v.value = newV)

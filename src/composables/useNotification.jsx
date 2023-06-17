@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import {v4} from 'uuid';
-import _ from 'lodash';
+import {get} from 'lodash-es';
 
 export default function useNotification() {
   const notifyState = ref({})
@@ -64,7 +64,7 @@ export default function useNotification() {
     if (typeof(e) === 'string')
       errorContent = e
     else if (e.response) // axios error
-      errorContent = _.get(e.response, 'data.message', e.message)
+      errorContent = get(e.response, 'data.message', e.message)
     else
       errorContent = e.message
     return errorContent
