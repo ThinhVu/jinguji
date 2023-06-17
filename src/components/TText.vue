@@ -21,7 +21,7 @@ import {debounce} from 'lodash-es';
 import {ref, computed, watch} from 'vue';
 
 const props = defineProps({
-  modelValue: String,
+  modelValue: [String, Boolean, Number],
   type: {
     type: String,
     default: 'text'
