@@ -58,8 +58,8 @@ export {TProgress}
 import TPulseBlock from './TPulseBlock.vue';
 export {TPulseBlock}
 
-import TRadio from './TRadio.vue';
-export {TRadio}
+import TRadioList from './TRadioList.vue';
+export {TRadioList}
 
 import TRating from './TRating.vue';
 export {TRating}
