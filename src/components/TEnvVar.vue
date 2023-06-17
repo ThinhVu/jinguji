@@ -1,17 +1,22 @@
 <template>
   <div>
-    <p>{{label}}</p>
-    <div class="grid gtc-1fr-1fr-50px gg-4px">
+    <p class="mb-2 fs-s c:#1F2328">
+      <span>{{label}}</span>
+    </p>
+    <div class="grid gtc-1fr-1fr-50px gg-4px mb-2">
       <template v-for="(v, k) in iModelValue" :key="k">
         <t-text :model-value="k" @update:modelValue="updateKey(k, $event)" :debounce-ms="500" placeholder="Key"/>
         <t-text :model-value="v" @update:modelValue="updateValue(k, $event)" :debounce-ms="500" placeholder="Value"/>
         <t-btn delete @click="removeKV(k)">
-          <t-icon>fas fa-trash@20px:#fff</t-icon>
+          <t-icon>fas fa-trash@16px:#fff</t-icon>
         </t-btn>
       </template>
     </div>
     <div class="fr ai-c jc-fe">
-      <t-btn @click="addKV">Add</t-btn>
+      <t-btn primary @click="addKV">
+        <t-icon>fas fa-add@16px:#fff</t-icon>
+        Add
+      </t-btn>
     </div>
   </div>
 </template>
