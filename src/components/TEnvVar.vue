@@ -1,7 +1,11 @@
 <template>
   <div>
-    <p class="mb-2 fs-s c:#1F2328">
+    <p class="fr ai-c jc-sb mb-2 fs-s c:#1F2328">
       <span>{{label}}</span>
+      <t-btn primary @click="addKV">
+        <t-icon>fas fa-add@16px:#fff</t-icon>
+        Add
+      </t-btn>
     </p>
     <div class="grid gtc-1fr-1fr-50px gg-4px mb-2">
       <template v-for="(v, k) in iModelValue" :key="k">
@@ -11,12 +15,6 @@
           <t-icon>fas fa-trash@16px:#fff</t-icon>
         </t-btn>
       </template>
-    </div>
-    <div class="fr ai-c jc-fe">
-      <t-btn primary @click="addKV">
-        <t-icon>fas fa-add@16px:#fff</t-icon>
-        Add
-      </t-btn>
     </div>
   </div>
 </template>
