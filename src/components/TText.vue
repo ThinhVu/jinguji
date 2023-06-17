@@ -1,6 +1,6 @@
 <template>
   <div class="t-text">
-    <div v-if="label" class="mb-2 fw-6 c:#1F2328" style="user-select: none">{{label}}</div>
+    <div v-if="label" class="mb-1 fs-s c:#1F2328" style="user-select: none">{{label}}</div>
     <textarea
         v-if="multiLine"
         :value="v" @input="updateV"

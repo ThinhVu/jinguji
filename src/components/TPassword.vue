@@ -1,6 +1,6 @@
 <template>
   <div class="t-password">
-    <div class="mb-2 fw-6 c:#1F2328" style="user-select: none">{{ label }}</div>
+    <div class="mb-1 fs-s c:#1F2328" style="user-select: none">{{ label }}</div>
     <input
         :value="v"
         @input="updateV"
