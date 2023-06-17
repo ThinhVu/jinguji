@@ -19,6 +19,9 @@ export {TDatePicker}
 import TEmojis from './TEmojis.vue';
 export {TEmojis}
 
+import TEnvVar from './TEnvVar.vue';
+export {TEnvVar}
+
 import TIcon from './TIcon.vue';
 export {TIcon}
 

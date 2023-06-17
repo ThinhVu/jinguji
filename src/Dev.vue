@@ -26,6 +26,7 @@ import TrackExample from './examples/TrackExample.vue';
 import ButtonExample from './examples/ButtonExample.vue';
 import CollapsibleSectionExample from './examples/CollapsibleSectionExample.vue';
 import UncategoryExample from './examples/UncategoryExample.vue';
+import TEnvVarExample from './examples/TEnvVarExample.vue';
 import InputExample from './examples/InputExample.vue';
 import TSystem from './components/TSystem.vue';
 
@@ -40,7 +41,8 @@ const demos = {
   ButtonExample,
   InputExample,
   CollapsibleSectionExample,
-  UncategoryExample
+  UncategoryExample,
+  TEnvVarExample
 }
 
 const view = ref(Object.keys(demos)[0])
