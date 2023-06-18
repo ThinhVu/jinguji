@@ -1,12 +1,14 @@
 <template>
   <div>
-    <p class="fr ai-c jc-sb fs-s c:#1F2328">
+    <div class="fr ai-c fg-4px fs-s c:#1F2328">
       <span>{{label}}</span>
-      <t-btn primary @click="addKV">
-        <t-icon>fas fa-add@16px:#fff</t-icon>
-        Add
+      <t-btn
+          primary @click="addKV"
+          class="fr ai-c jc-c clickable bc:#2196f3 c:#fff"
+          style="border-radius: 100px">
+        +
       </t-btn>
-    </p>
+    </div>
     <div v-if="hasProps" class="grid gtc-1fr-1fr-50px gg-4px mt-1">
       <template v-for="(v, k) in iModelValue" :key="k">
         <t-text :model-value="k" @update:modelValue="updateKey(k, $event)" :debounce-ms="500" placeholder="Key"/>
