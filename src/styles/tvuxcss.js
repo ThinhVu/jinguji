@@ -43,6 +43,8 @@ const layouts = [
   ['ovf-x-h', {'overflow-x': 'hidden'}],
   ['ovf-y-s', {'overflow-y': 'scroll'}],
   ['ovf-y-h', {'overflow-y': 'hidden'}],
+  ['sb-h', {'-ms-overflow-style': 'none', /* IE, Edge */ 'scrollbar-width': 'none'  /* Firefox */}]
+  ['sb-h::-webkit-scrollbar', {display: 'none'}] /* Chrome, Safari and Opera, doesn't support by UnoCSS */
   ['hide-scroll-bar', {'-ms-overflow-style': 'none', /* IE, Edge */ 'scrollbar-width': 'none'  /* Firefox */}],
   ['hide-scroll-bar::-webkit-scrollbar', {display: 'none'}], /* Chrome, Safari and Opera, doesn't support by UnoCSS */
 
