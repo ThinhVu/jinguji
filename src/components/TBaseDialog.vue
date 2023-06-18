@@ -5,7 +5,7 @@
       <span class="fs-14px fw-7">{{title}}</span>
       <t-icon v-if="showCloseIcon" class="clickable" @click="emit('close')">fas fa-times@20px</t-icon>
     </div>
-    <div class="fc fg-16px px-4 py-4">
+    <div class="fc fg-16px px-4 py-4" :style="bodyMaxHeight ? { maxHeight: bodyMaxHeight, overflowY: 'scroll' } : {}">
       <slot name="body"/>
     </div>
     <div class="fr ai-c jc-fe fg-4px px-4 py-4" style="border-top: 0.1rem solid #d0d7de">
@@ -16,6 +16,7 @@
 <script setup>
 const props = defineProps({
   title: String,
+  bodyMaxHeight: String,
   showCloseIcon: {
     type: Boolean,
     default: true
