@@ -9,7 +9,7 @@
         +
       </t-btn>
     </div>
-    <div v-if="hasProps" class="grid gtc-1fr-1fr-50px gg-4px mt-1">
+    <div v-if="hasProps" class="grid gtc-1fr-1fr-50px mt-1" style="grid-column-gap: 4px; grid-row-gap: 12px">
       <template v-for="(v, k) in iModelValue" :key="k">
         <t-text :model-value="k" @update:modelValue="updateKey(k, $event)" :debounce-ms="500" placeholder="Key"/>
         <t-text :model-value="v" @update:modelValue="updateValue(k, $event)" :debounce-ms="500" placeholder="Value"/>
