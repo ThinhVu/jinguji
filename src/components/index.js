@@ -1,6 +1,3 @@
-import TBackOffice from './TBackOffice.vue';
-export {TBackOffice}
-
 import TBaseDialog from './TBaseDialog.vue';
 export {TBaseDialog}
 
@@ -12,6 +9,9 @@ export {TCheckBox}
 
 import TCollapsibleSection from './TCollapsibleSection.vue';
 export {TCollapsibleSection}
+
+import TDashboard from './TDashboard.vue';
+export {TDashboard}
 
 import TDatePicker from './TDatePicker.vue';
 export {TDatePicker}
