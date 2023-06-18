@@ -1,5 +1,5 @@
 <template>
-  <div class="t-text">
+  <div class="t-text rel">
     <div v-if="label" class="mb-1 fs-s c:#1F2328" style="user-select: none">{{label}}</div>
     <textarea
         v-if="multiLine"
@@ -13,6 +13,9 @@
         @input="updateV"
         :placeholder="placeholder"
         style="outline: none; height: 32px; user-select: none;" class="t-text-input single-line br-1">
+    <div v-if="v && !label" class="abs bc:#fff c:#888" style="top: -0.7em; left: 4px; padding-left: 4px; padding-right: 4px; font-size: small">
+      {{placeholder}}
+    </div>
   </div>
 </template>
 

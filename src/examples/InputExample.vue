@@ -6,6 +6,7 @@
 
     <div class="fc fg-32px px-2 py-2">
       <t-text v-model="username" label="Username" placeholder="enter your username"/>
+      <t-text v-model="username" placeholder="enter your username"/>
       <t-password v-model="password" label="Password" placeholder="qweqwqweqwesd"/>
       <t-check-box v-model="rememberPwd" label="Remember password"/>
       <t-radio
