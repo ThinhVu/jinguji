@@ -1,7 +1,7 @@
 <template>
   <div v-if="isLoading">
     <slot name="loading">
-      <div class="fr ai-c">
+      <div class="fr ai-c jc-c w-100 h-100">
         <t-spinner size="20px" class="mr-1"/>
         <span v-if="title" class="mr-1">{{title}}</span>
       </div>
