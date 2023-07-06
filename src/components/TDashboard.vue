@@ -69,7 +69,7 @@ function selectSidebarItem(i) {
 }
 
 .content {
-  width: calc(100% - 56px);
+  width: calc(100% - 46px);
 }
 
 .item-icon {
