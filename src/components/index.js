@@ -19,8 +19,8 @@ export {TDatePicker}
 import TEmojis from './TEmojis.vue';
 export {TEmojis}
 
-import TEnvVar from './TEnvVar.vue';
-export {TEnvVar}
+import TGuard from './TGuard.vue';
+export {TGuard}
 
 import TIcon from './TIcon.vue';
 export {TIcon}
@@ -31,8 +31,8 @@ export {TImg}
 import TImgSlide from './TImgSlide.vue';
 export {TImgSlide}
 
-import TGuard from './TGuard.vue';
-export {TGuard}
+import TKeyValue from './TKeyValue.vue';
+export {TKeyValue}
 
 import TLoading from './TLoading.vue';
 export {TLoading}
