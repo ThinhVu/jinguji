@@ -27,16 +27,23 @@
     </tbody>
   </t-table>
   <t-label-mask mask="+1 (###) ###-####" model-value="2345678901"/>
+  <t-paging-toolbar class="fr ai-c jc-fs fg-8px" v-bind="paging" @update:page="paging.page = $event"></t-paging-toolbar>
 </template>
 <script setup>
 import dayjs from 'dayjs'
-import {onMounted} from 'vue';
+import {onMounted, reactive} from 'vue';
 import TProgress from '../components/TProgress.vue';
 import TTable from '../components/TTable.vue';
 import TLabelMask from '../components/TLabelMask.vue';
+import TPagingToolbar from '../components/TPagingToolbar.vue';
 
 const times = dayjs().subtract(80, 'minute').toDate()
 
+const paging = reactive({
+  page: 1,
+  itemsPerPage: 10,
+  totalItems: 300
+})
 
 onMounted(() => {
 
