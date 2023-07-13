@@ -1,15 +1,17 @@
 <template>
-  <template v-if="totalItems">
-    <div>Total: {{totalItems}}</div>
-    <btn :disabled="!canPrev" @click="firstPage">|&lt;</btn>
-    <btn :disabled="!canPrev" @click="prevPage">&lt;</btn>
-    <span>{{page}} / {{totalPages}}</span>
-    <btn :disabled="!canGoNext" @click="nextPage">&gt;</btn>
-    <btn :disabled="!canGoNext" @click="lastPage">&gt;|</btn>
-  </template>
-  <template v-else>
-    Empty
-  </template>
+  <div class="t-paging-toolbar">
+    <template v-if="totalItems">
+      <div>Total: {{totalItems}}</div>
+      <btn :disabled="!canPrev" @click="firstPage">|&lt;</btn>
+      <btn :disabled="!canPrev" @click="prevPage">&lt;</btn>
+      <span>{{page}} / {{totalPages}}</span>
+      <btn :disabled="!canGoNext" @click="nextPage">&gt;</btn>
+      <btn :disabled="!canGoNext" @click="lastPage">&gt;|</btn>
+    </template>
+    <template v-else>
+      Empty
+    </template>
+  </div>
 </template>
 <script setup>
 import {round} from 'lodash-es';
