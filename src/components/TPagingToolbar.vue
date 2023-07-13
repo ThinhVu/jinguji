@@ -35,7 +35,12 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:page'])
 
-const totalPages = computed(() => round(props.totalItems / props.itemsPerPage + 0.5, 0))
+const totalPages = computed(() => {
+  let p = round(props.totalItems / props.itemsPerPage)
+  if (props.totalItems % props.itemsPerPage !== 0)
+    p += 1
+  return p
+})
 
 const canPrev = computed(() => props.page > 1)
 const firstPage = () => emit('update:page', 1);
