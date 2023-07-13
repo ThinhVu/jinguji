@@ -26,12 +26,14 @@
     </tr>
     </tbody>
   </t-table>
+  <t-label-mask mask="+1 (###) ###-####" model-value="2345678901"/>
 </template>
 <script setup>
 import dayjs from 'dayjs'
 import {onMounted} from 'vue';
 import TProgress from '../components/TProgress.vue';
 import TTable from '../components/TTable.vue';
+import TLabelMask from '../components/TLabelMask.vue';
 
 const times = dayjs().subtract(80, 'minute').toDate()
 

@@ -22,6 +22,9 @@ export {TEmojis}
 import TGuard from './TGuard.vue';
 export {TGuard}
 
+import TLabelMask from './TLabelMask.vue';
+export {TLabelMask}
+
 import TIcon from './TIcon.vue';
 export {TIcon}
 
