@@ -74,7 +74,7 @@ export default function useNotification() {
     return <>
       {Object.values(notifyState.value).map((notify, i) =>
           <div class="fix fr ai-c jc-c px-4 py-4 br-1 top-0 right-0"
-               style={[marginTop(i), {backgroundColor: notify.color}]}>
+               style={[marginTop(i), {backgroundColor: notify.color, zIndex: 10000}]}>
             <div class="fr ai-fs">
               {notify.prepend && notify.prepend()}
               <div class="f1 max-w-360px">
