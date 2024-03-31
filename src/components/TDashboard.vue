@@ -48,6 +48,7 @@ function selectSidebarItem(i) {
 .sidebar {
   width: 200px;
   min-width: 200px;
+  border-right: 1px solid #ddd;
 }
 
 .item-icon {
