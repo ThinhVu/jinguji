@@ -46,9 +46,20 @@ function selectSidebarItem(i) {
 }
 
 .sidebar {
-  width: 46px;
-  min-width: 46px;
-  border-right: 1px solid #d8dee4;
+  width: 200px;
+  min-width: 200px;
+}
+
+.item-icon {
+  margin-right: 0.5em;
+}
+
+.item-text {
+  display: initial;
+}
+
+.content {
+  width: calc(100% - 200px);
 }
 
 .sidebar-item {
@@ -66,36 +77,5 @@ function selectSidebarItem(i) {
 
 .sidebar-item:hover {
   background-color: #d0d7de52;
-}
-
-.content {
-  width: calc(100% - 46px);
-}
-
-.item-icon {
-  margin-right: 0;
-}
-
-.item-text {
-  display: none;
-}
-
-@media screen and (min-width: 1024px) {
-  .sidebar {
-    width: 200px;
-    min-width: 200px;
-  }
-
-  .item-icon {
-    margin-right: 0.5em;
-  }
-
-  .item-text {
-    display: initial;
-  }
-
-  .content {
-    width: calc(100% - 200px);
-  }
 }
 </style>
