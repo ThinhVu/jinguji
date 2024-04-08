@@ -24,7 +24,6 @@
   </div>
 </template>
 <script setup>
-import {round} from 'lodash-es';
 import {computed} from 'vue';
 import Btn from './TBtn.vue';
 
@@ -36,7 +35,7 @@ const props = defineProps({
 const emit = defineEmits(['update:page'])
 
 const totalPages = computed(() => {
-  let p = round(props.totalItems / props.itemsPerPage)
+  let p = Math.floor(props.totalItems / props.itemsPerPage)
   if (props.totalItems % props.itemsPerPage !== 0)
     p += 1
   return p
