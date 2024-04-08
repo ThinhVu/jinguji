@@ -28,6 +28,7 @@ import CollapsibleSectionExample from './examples/CollapsibleSectionExample.vue'
 import UncategoryExample from './examples/UncategoryExample.vue';
 import TKeyValueExample from './examples/TKeyValueExample.vue';
 import InputExample from './examples/InputExample.vue';
+import TableExample from './examples/TableExample.vue';
 import TSystem from './components/TSystem.vue';
 
 const demos = {
@@ -42,7 +43,8 @@ const demos = {
   InputExample,
   CollapsibleSectionExample,
   UncategoryExample,
-  TKeyValueExample
+  TKeyValueExample,
+  TableExample
 }
 
 const view = ref(Object.keys(demos)[0])

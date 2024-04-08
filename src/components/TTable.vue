@@ -14,7 +14,7 @@
 }
 
 table {
-  border-collapse: separate;
+  border-collapse: collapse;
   border-spacing: unset;
   width: 100%;
   font-size: 12px;
@@ -23,7 +23,9 @@ table {
 :deep(th) {
   padding: 0 8px;
   color: #1f2328;
-  border: thin solid #d0d7de;
+  border-left: 1px solid #d0d7de;
+  border-bottom: 1px solid #d0d7de;
+  /* border: thin solid #d0d7de; */
   text-align: left;
   background-color: #f6f8fa;
   position: sticky;
@@ -35,9 +37,23 @@ table {
   height: 36px;
   padding: 8px;
   color: #1f2328;
-  border: thin solid #d0d7de;
+  border-left: 1px solid #d0d7de;
+  border-bottom: 1px solid #d0d7de;
+  /* border: thin solid #d0d7de; */
   background-color: #fff;
   text-align: left;
+}
+
+:deep(th:first-child) {
+  border-left: none !important;
+}
+
+:deep(td:first-child) {
+  border-left: none !important;
+}
+
+:deep(tr:last-child > td) {
+  border-bottom: none !important;
 }
 
 :deep(tr:hover > td) {
