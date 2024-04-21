@@ -11,29 +11,39 @@ const LOAD_ACTIONS = {
 const products = ref([])
 const customers = ref([])
 
-function loadProducts() {
+function _loadProducts() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve([
+        {_id: 1, name: 'iPhone 14 Mini', price: 700},
+        {_id: 2, name: 'iPhone 14', price: 800},
+        {_id: 3, name: 'iPhone 14 Pro', price: 900},
+        {_id: 4, name: 'iPhone 14 Pro Max', price: 1000},
+      ])
+    }, 2000)
+  })
+}
+async function loadProducts() {
   loading.begin(LOAD_ACTIONS.LOAD_PRODUCTS)
-  setTimeout(() => {
-    products.value = [
-      {_id: 1, name: 'iPhone 14 Mini', price: 700},
-      {_id: 2, name: 'iPhone 14', price: 800},
-      {_id: 3, name: 'iPhone 14 Pro', price: 900},
-      {_id: 4, name: 'iPhone 14 Pro Max', price: 1000},
-    ]
-    loading.end(LOAD_ACTIONS.LOAD_PRODUCTS)
-  }, 2000)
+  products.value = await _loadProducts()
+  loading.end(LOAD_ACTIONS.LOAD_PRODUCTS)
 }
 
-function loadCustomers() {
+function _loadCustomers() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve([
+        {_id: 1, name: 'Timothy', age: 24, gender: 'Male'},
+        {_id: 2, name: 'Alice', age: 18, gender: 'Undetermined'},
+        {_id: 3, name: 'Emily', age: 32, gender: 'Female'},
+      ])
+    }, 4000)
+  })
+}
+async function loadCustomers() {
   loading.begin(LOAD_ACTIONS.LOAD_CUSTOMERS)
-  setTimeout(() => {
-    customers.value = [
-      {_id: 1, name: 'Timothy', age: 24, gender: 'Male'},
-      {_id: 2, name: 'Alice', age: 18, gender: 'Undetermined'},
-      {_id: 3, name: 'Emily', age: 32, gender: 'Female'},
-    ]
-    loading.end(LOAD_ACTIONS.LOAD_CUSTOMERS)
-  }, 4000)
+  customers.value = await _loadCustomers()
+  loading.end(LOAD_ACTIONS.LOAD_CUSTOMERS)
 }
 
 function loadData() {
@@ -49,6 +59,7 @@ function loadData() {
   <hr class="my-2"/>
 
   <div>
+    <p>Default loading template</p>
     <t-loading
         :action="LOAD_ACTIONS.LOAD_PRODUCTS"
         title="Loading products...">
@@ -64,6 +75,7 @@ function loadData() {
   <hr class="my-2"/>
 
   <div>
+    <p>Custom loading template</p>
     <t-loading :action="LOAD_ACTIONS.LOAD_CUSTOMERS">
       <template #loading>
         <div v-for="i in [1, 2, 3]" :key="i" class="grid gtc-70px-1fr ai-c fg-4px px-2 py-2">
