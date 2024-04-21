@@ -10,6 +10,9 @@ export {TCheckBox}
 import TCollapsibleSection from './TCollapsibleSection.vue';
 export {TCollapsibleSection}
 
+import TCombobox from "./TCombobox.vue";
+export {TCombobox}
+
 import TDashboard from './TDashboard.vue';
 export {TDashboard}
 

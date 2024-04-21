@@ -21,6 +21,13 @@
           v-model="subscription"
           item-text="text"
           item-value="value"/>
+
+      <t-combobox
+        :options="subscriptionOptions"
+        v-model="subscription"
+        item-text="text"
+        item-value="value"/>
+
       <t-date-picker/>
       <t-time-picker/>
     </div>
@@ -29,6 +36,7 @@
 <script setup>
 import {ref, computed} from 'vue'
 import TTextMask from '../components/TTextMask.vue';
+import TCombobox from "../components/TCombobox.vue";
 
 const darkMode = ref(false)
 const bc = computed(() => darkMode.value ? '#444' : '#fff')

@@ -18,8 +18,8 @@
   </div>
 </template>
 <script setup>
-import {watch, ref, computed} from 'vue'
 import {v4} from 'uuid'
+import useSelectable from "../composables/selectable";
 
 const props = defineProps({
   label: String,
@@ -33,46 +33,5 @@ const emit = defineEmits(['update:modelValue'])
 
 const name = v4()
 
-const v = ref(props.modelValue)
-watch(() => props.modelValue, newV => v.value = newV)
-
-const isOnlyHasPrimitiveOption = computed(() => {
-  for (const option of props.options) {
-    if (typeof option === 'object') {
-      return false
-    }
-  }
-  return true
-})
-const getText = computed(() => {
-  if (isOnlyHasPrimitiveOption.value)
-    return option => option
-
-  if (typeof props.itemText === 'function')
-    return option => props.itemText(option)
-
-  return option => option[props.itemText]
-})
-const getValue = computed(() => {
-  if (isOnlyHasPrimitiveOption.value)
-    return option => option
-
-  if (typeof props.itemValue === 'function')
-    return option => props.itemValue(option)
-
-  return option => option[props.itemValue]
-})
-const optionsVM = computed(() => {
-  const vms = []
-  for (const option of props.options) {
-    vms.push({
-      _o: option,
-      _t: getText.value(option),
-      _v: getValue.value(option),
-    })
-  }
-  return vms
-})
+const {v, optionsVM} = useSelectable(props)
 </script>
-<style scoped>
-</style>
