@@ -5,13 +5,7 @@
       <div class="fr h-100 w-100">
         <div class="sidebar fc fg-4px ovf-y-s sb-h px-1 py-1">
           <slot name="sidebar-header"></slot>
-          <div v-for="(item, i) in sidebarItems" :key="item.title"
-               class="sidebar-item fr ai-c px-2 py-1 clickable"
-               :class="selectedSidebarItemIdx === i && 'sidebar-item--selected'"
-               @click="selectSidebarItem(i)">
-            <t-icon class="item-icon">{{ item.icon }}</t-icon>
-            <span class="item-text">{{ item.title }}</span>
-          </div>
+          <TDashboardItem :sidebar-items="sidebarItems"/>
           <t-spacer/>
           <slot name="sidebar-footer"></slot>
         </div>
@@ -23,22 +17,48 @@
   </div>
 </template>
 <script setup lang="ts">
-import {ref, computed} from "vue";
-interface ISideBarItem {
+import {ref, reactive, provide, computed} from "vue";
+import TSpacer from "./TSpacer.vue";
+import TDashboardItem from "./TDashboardItem.vue";
+type SideBarItem = {
   title: string;
-  icon: string;
-  component: any
+  icon?: string;
+  items?: Array<SideBarItem>;
+  key?: string;
+  component?: any;
 }
 interface Props {
-  sidebarItems: [ISideBarItem]
+  sidebarItems: [SideBarItem]
 }
-const props = defineProps<Props>()
-const selectedSidebarItemIdx = ref(0)
-const SelectedComponent = computed(() => props.sidebarItems[selectedSidebarItemIdx.value].component)
+const props = defineProps<Props>();
+const toggle = reactive({});
 
-function selectSidebarItem(i) {
-  selectedSidebarItemIdx.value = i
+const selectedItem = ref();
+const SelectedComponent = computed(() => selectedItem.value?.component)
+
+function isSelected(item) {
+  return selectedItem.value?.key === item.key
 }
+function isToggled(item) {
+  return toggle[item.key]
+}
+
+function onItemClicked(item) {
+  console.log('onClick', item)
+  if (item.items) {
+    console.log('toggle', item.key)
+    toggle[item.key] = !toggle[item.key]
+  } else {
+    console.log('show component w key', item.key)
+    selectedItem.value = item
+  }
+}
+
+provide('DashboardCtx', {
+  isSelected,
+  isToggled,
+  onItemClicked
+})
 </script>
 <style scoped>
 .t-dashboard {
@@ -51,32 +71,7 @@ function selectSidebarItem(i) {
   border-right: 1px solid #ddd;
 }
 
-.item-icon {
-  margin-right: 0.5em;
-}
-
-.item-text {
-  display: initial;
-}
-
 .content {
   width: calc(100% - 200px);
-}
-
-.sidebar-item {
-  color: #1f2328;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 14px;
-  background-color: transparent;
-}
-
-.sidebar-item--selected {
-  color: #0b0d0e;
-  background-color: #a7b1bb3d;
-}
-
-.sidebar-item:hover {
-  background-color: #d0d7de52;
 }
 </style>

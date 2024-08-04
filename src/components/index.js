@@ -16,6 +16,9 @@ export {TCombobox}
 import TDashboard from './TDashboard.vue';
 export {TDashboard}
 
+import TDashboardItem from "./TDashboardItem.vue";
+export {TDashboardItem}
+
 import TDatePicker from './TDatePicker.vue';
 export {TDatePicker}
 

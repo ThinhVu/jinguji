@@ -1,21 +1,10 @@
 <template>
   <t-system>
-    <div class="w-100vw h-100vh fc fg-6px px-2 py-2">
-      <div class="fr ai-c fg-6px pb-2 fw-w"
-           style="border-bottom: 5px solid red">
-        <t-btn v-for="k in Object.keys(demos)" :key="k" @click="view = k">
-          {{k}}
-        </t-btn>
-      </div>
-      <div>
-        <component :is="demos[view]"/>
-      </div>
-    </div>
+    <t-dashboard :sidebar-items="sideBarItems"/>
   </t-system>
 </template>
 
-<script setup>
-import {ref} from 'vue';
+<script setup lang="ts">
 import DialogExample from './examples/DialogExample.vue';
 import MsgBoxExample from './examples/MsgBoxExample.vue';
 import NotificationExample from './examples/NotificationExample.vue';
@@ -30,24 +19,47 @@ import TKeyValueExample from './examples/TKeyValueExample.vue';
 import InputExample from './examples/InputExample.vue';
 import TableExample from './examples/TableExample.vue';
 import TSystem from './components/TSystem.vue';
+import TDashboard from "./components/TDashboard.vue";
 
-const demos = {
-  DialogExample,
-  MsgBoxExample,
-  NotificationExample,
-  LoadingExample,
-  LayoutExample,
-  GuardExample,
-  TrackExample,
-  ButtonExample,
-  InputExample,
-  CollapsibleSectionExample,
-  UncategoryExample,
-  TKeyValueExample,
-  TableExample
-}
-
-const view = ref(Object.keys(demos)[0])
+const sideBarItems = [
+  {
+    title: 'System Components',
+    key: 'sc',
+    items: [
+      {title: 'Dialog', key: 'dialog', component: DialogExample},
+      {title: 'Message box', key: 'msgBOx', component: MsgBoxExample},
+      {title: 'Notification', key: 'notification', component: NotificationExample},
+      {title: 'Loading', key: 'loading', component: LoadingExample}
+    ]
+  },
+  {
+    title: 'UI util components',
+    key: 'uuc',
+    items: [
+      {title: 'Layout', key: 'layout', component: LayoutExample},
+      {title: 'Guard', key: 'guard', component: GuardExample},
+      {title: 'Tracking', key: 'tracking', component: TrackExample},
+    ]
+  },
+  {
+    title: 'Basic Components',
+    key: 'bc',
+    items: [
+      {title: 'Inputs', key: 'input', component: InputExample},
+      {title: 'Buttons', key: 'buttons', component: ButtonExample},
+      {title: 'Table', key: 'table', component: TableExample},
+      {title: 'Collapse/Expand', key: 'ce', component: CollapsibleSectionExample}
+    ]
+  },
+  {
+    title: 'Advance Components',
+    key: 'ac',
+    items: [
+      {title: 'KeyValue', key: 'kv', component: TKeyValueExample},
+      {title: 'Uncategory', key: 'uncategories', component: UncategoryExample}
+    ]
+  }
+]
 
 </script>
 
