@@ -1,10 +1,11 @@
 <template>
   <t-system>
-    <t-dashboard :sidebar-items="sideBarItems"/>
+    <t-dashboard :sidebar-items="sideBarItems" :kei="kei"/>
   </t-system>
 </template>
 
 <script setup lang="ts">
+import {ref} from 'vue';
 import DialogExample from './examples/DialogExample.vue';
 import MsgBoxExample from './examples/MsgBoxExample.vue';
 import NotificationExample from './examples/NotificationExample.vue';
@@ -21,6 +22,7 @@ import TableExample from './examples/TableExample.vue';
 import TSystem from './components/TSystem.vue';
 import TDashboard from "./components/TDashboard.vue";
 
+const kei = ref('msgBOx')
 const sideBarItems = [
   {
     title: 'System Components',

@@ -17,7 +17,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import {ref, reactive, provide, computed} from "vue";
+import {isEmpty} from "lodash-es";
+import {ref, onMounted, reactive, provide, watch, computed} from "vue";
 import TSpacer from "./TSpacer.vue";
 import TDashboardItem from "./TDashboardItem.vue";
 type SideBarItem = {
@@ -28,7 +29,8 @@ type SideBarItem = {
   component?: any;
 }
 interface Props {
-  sidebarItems: [SideBarItem]
+  sidebarItems: [SideBarItem],
+  kei: string
 }
 const props = defineProps<Props>();
 const toggle = reactive({});
@@ -53,6 +55,47 @@ function onItemClicked(item) {
     selectedItem.value = item
   }
 }
+
+function setSelectedItemFromKei() {
+  if (isEmpty(props.sidebarItems))
+    return;
+  selectedItem.value = findItemByKey(props.kei, props.sidebarItems) || findItemHasComponent(props.sidebarItems);
+}
+function findItemHasComponent(items) {
+  for (const item of items) {
+    if (item.component)
+      return item
+
+    if (isEmpty(item.items))
+      continue
+
+    const foundItem = findItemHasComponent(item.items);
+    if (foundItem) {
+      toggle[item.key] = true;
+      return foundItem;
+    }
+  }
+}
+function findItemByKey(key, items) {
+  if (key) {
+    for (const item of items) {
+      if (item.key === key)
+        return item;
+
+      if (isEmpty(item.items))
+        continue
+
+      const foundItem = findItemByKey(key, item.items);
+      if (foundItem) {
+        toggle[item.key] = true;
+        return foundItem;
+      }
+    }
+  }
+}
+
+onMounted(setSelectedItemFromKei)
+watch(() => props.kei, setSelectedItemFromKei)
 
 provide('DashboardCtx', {
   isSelected,
