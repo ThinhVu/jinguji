@@ -16,16 +16,18 @@ const {v, optionsVM} = useSelectable(props)
 </script>
 
 <template>
-  <div v-if="label" class="mb-1 fs-s c:#1F2328" style="user-select: none">{{label}}</div>
-  <select @change="emit('update:modelValue', $event.target.value)">
-    <option
-      v-for="option in optionsVM"
-      :key="option._v"
-      :value="option._v"
-      :selected="option._v === v">
-      {{option._t}}
-    </option>
-  </select>
+  <div class="t-combobox rel">
+    <div v-if="label" class="mb-1 fs-s c:#1F2328" style="user-select: none">{{label}}</div>
+    <select @change="emit('update:modelValue', $event.target.value)">
+      <option
+        v-for="option in optionsVM"
+        :key="option._v"
+        :value="option._v"
+        :selected="option._v === v">
+        {{option._t}}
+      </option>
+    </select>
+  </div>
 </template>
 
 <style scoped>
