@@ -31,5 +31,10 @@ const {v, optionsVM} = useSelectable(props)
 </template>
 
 <style scoped>
-
+.t-combobox > select {
+  height: 32px;
+  border: 1px solid #d0d7de;
+  box-shadow: inset 0 1px 0 rgba(208, 215, 222, 0.2);
+  border-radius: 4px;
+}
 </style>
