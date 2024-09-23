@@ -1,5 +1,5 @@
 <template>
-  <div class="t-table ovf-y-s sb-h">
+  <div class="t-table ovf-y-a">
     <table><slot/></table>
   </div>
 </template>

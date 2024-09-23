@@ -39,8 +39,10 @@ const layouts = [
 
   /* overflow */
   ['ovf-h', {overflow: 'hidden'}],
+  ['ovf-x-a', {'overflow-x': 'auto'}],
   ['ovf-x-s', {'overflow-x': 'scroll'}],
   ['ovf-x-h', {'overflow-x': 'hidden'}],
+  ['ovf-y-a', {'overflow-y': 'auto'}],
   ['ovf-y-s', {'overflow-y': 'scroll'}],
   ['ovf-y-h', {'overflow-y': 'hidden'}],
   ['sb-h', {'-ms-overflow-style': 'none', 'scrollbar-width': 'none'}],
