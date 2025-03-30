@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import {computed, onMounted} from 'vue'
+import {ref, computed, onMounted} from 'vue'
 
 const props = defineProps({ media: Array, idx: Number })
 
