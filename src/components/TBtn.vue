@@ -13,7 +13,6 @@ const props = defineProps({
   primary: Boolean,
   secondary: Boolean,
   tertiary: Boolean,
-
 })
 
 const btnClasses = computed(() => ({

@@ -29,7 +29,7 @@ function handleClick(e, item) {
        style="user-select: none"
        @click="e => handleClick(e, item)">
     <template v-if="item.items">
-      <div class="sidebar-item fr ai-c px-2 py-1 clickable"
+      <div class="sidebar-item fr ai-c px-2 py-2 clickable"
            :class="isSelected(item) && 'sidebar-item--selected'"
       >
         <t-icon v-if="item.icon" class="item-icon">{{ item.icon }}</t-icon>
@@ -74,6 +74,6 @@ function handleClick(e, item) {
 }
 
 .sidebar-item:hover {
-  background-color: #d0d7de52;
+  background-color: rgba(185, 191, 197, 0.32);
 }
 </style>

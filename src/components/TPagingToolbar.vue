@@ -1,22 +1,22 @@
 <template>
   <div class="t-paging-toolbar">
     <template v-if="totalItems">
-      <btn :disable="!canPrev" @click="firstPage">
+      <t-btn :disable="!canPrev" @click="firstPage">
         <t-icon>fas fa-angle-double-left@16</t-icon>
-      </btn>
-      <btn :disable="!canPrev" @click="prevPage">
+      </t-btn>
+      <t-btn :disable="!canPrev" @click="prevPage">
         <t-icon>fas fa-angle-left@16</t-icon>
-      </btn>
+      </t-btn>
       <span class="fr ai-c fg-8px">
-        <t-text class="w-40px" :model-value="page" @update:model-value="toPage($event)"/>
+        <t-text class="w-80px" :model-value="page" @update:model-value="toPage($event)"/>
         <span>/ {{totalPages}}</span>
       </span>
-      <btn :disable="!canGoNext" @click="nextPage">
+      <t-btn :disable="!canGoNext" @click="nextPage">
         <t-icon>fas fa-angle-right@16</t-icon>
-      </btn>
-      <btn :disable="!canGoNext" @click="lastPage">
+      </t-btn>
+      <t-btn :disable="!canGoNext" @click="lastPage">
         <t-icon>fas fa-angle-double-right@16</t-icon>
-      </btn>
+      </t-btn>
     </template>
     <template v-else>
       Empty
@@ -25,7 +25,6 @@
 </template>
 <script setup>
 import {computed} from 'vue';
-import Btn from './TBtn.vue';
 
 const props = defineProps({
   page: Number,

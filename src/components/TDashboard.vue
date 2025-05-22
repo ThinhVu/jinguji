@@ -3,14 +3,14 @@
     <t-page-header><slot name="header"/></t-page-header>
     <t-page-content>
       <div class="fr h-100 w-100">
-        <div class="sidebar fc fg-4px ovf-y-s sb-h px-1 py-1">
+        <div class="sidebar fc fg-8px ovf-y-s sb-h px-1 py-1">
           <slot name="sidebar-header"></slot>
           <TDashboardItem :sidebar-items="sidebarItems"/>
           <t-spacer/>
           <slot name="sidebar-footer"></slot>
         </div>
         <div class="content ovf-h">
-          <SelectedComponent/>
+          <SelectedComponent v-if="SelectedComponent"/>
         </div>
       </div>
     </t-page-content>
@@ -18,9 +18,10 @@
 </template>
 <script setup lang="ts">
 import {isEmpty} from "lodash-es";
-import {ref, onMounted, reactive, provide, watch, computed} from "vue";
+import {onMounted, reactive, provide, watch, computed, shallowRef} from "vue";
 import TSpacer from "./TSpacer.vue";
 import TDashboardItem from "./TDashboardItem.vue";
+
 type SideBarItem = {
   title: string;
   icon?: string;
@@ -35,12 +36,13 @@ interface Props {
 const props = defineProps<Props>();
 const toggle = reactive({});
 
-const selectedItem = ref();
+const selectedItem = shallowRef();
 const SelectedComponent = computed(() => selectedItem.value?.component)
 
 function isSelected(item) {
   return selectedItem.value?.key === item.key
 }
+
 function isToggled(item) {
   return toggle[item.key]
 }
@@ -61,6 +63,7 @@ function setSelectedItemFromKei() {
     return;
   selectedItem.value = findItemByKey(props.kei, props.sidebarItems) || findItemHasComponent(props.sidebarItems);
 }
+
 function findItemHasComponent(items) {
   for (const item of items) {
     if (item.component)
@@ -76,6 +79,7 @@ function findItemHasComponent(items) {
     }
   }
 }
+
 function findItemByKey(key, items) {
   if (key) {
     for (const item of items) {

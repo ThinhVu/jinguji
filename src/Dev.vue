@@ -1,6 +1,8 @@
 <template>
   <t-system>
-    <t-dashboard :sidebar-items="sideBarItems" :kei="kei"/>
+    <t-dashboard :sidebar-items="sideBarItems" :kei="kei">
+      <template #header><div>Demo</div></template>
+    </t-dashboard>
   </t-system>
 </template>
 
