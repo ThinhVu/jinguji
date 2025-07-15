@@ -5,6 +5,8 @@
 </template>
 
 <script setup>
+import {onMounted} from 'vue';
+
 const props = defineProps({zIndex: Number, raiseEvent: Boolean})
 const emit = defineEmits(['click'])
 
