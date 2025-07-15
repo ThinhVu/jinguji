@@ -15,7 +15,7 @@
         @input="updateV"
         @keydown="handleKeyDown"
         :placeholder="placeholder"
-        style="outline: none; user-select: none;" class="t-text-input single-line br-1">
+        style="outline: none; height: 32px; user-select: none;" class="t-text-input single-line br-1">
     <div v-if="v && !label" class="abs bc:#fff c:#888" style="top: -0.7em; left: 4px; padding-left: 4px; padding-right: 4px; font-size: small">
       {{placeholder}}
     </div>
@@ -68,6 +68,5 @@ const handleKeyDown = debounce((e) => {
 
 .single-line {
   width: 100%;
-  height: 100%;
 }
 </style>
