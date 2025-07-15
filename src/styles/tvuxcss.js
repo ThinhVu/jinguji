@@ -22,20 +22,20 @@ const colors = [
 
 const layouts = [
   /* sizing */
-  [/^h-(\d+)px/, ([, d]) => ({height: `${d}px`})],
-  [/^w-(\d+)px/, ([, d]) => ({width: `${d}px`})],
+  [/^h-(\d+)px/, ([, d]) => ({height: `${d}px !important`})],
+  [/^w-(\d+)px/, ([, d]) => ({width: `${d}px !important`})],
+
+  [/^h-(\d+)$/, ([, d]) => ({height: `${d}% !important`})],
+  [/^w-(\d+)$/, ([, d]) => ({width: `${d}% !important`})],
+
+  ['h-100vh', {height: '100vh !important'}],
+  ['w-100vw', {width: '100vw !important'}],
 
   [/^min-h-(\d+)px/, ([, d]) => ({['min-height']: `${d}px`})],
   [/^min-w-(\d+)px/, ([, d]) => ({['min-width']: `${d}px`})],
 
   [/^max-h-(\d+)px/, ([, d]) => ({['max-height']: `${d}px`})],
   [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px`})],
-
-  [/^h-(\d+)$/, ([, d]) => ({height: `${d}%`})],
-  [/^w-(\d+)$/, ([, d]) => ({width: `${d}%`})],
-
-  ['h-100vh', {height: '100vh'}],
-  ['w-100vw', {width: '100vw'}],
 
   /* overflow */
   ['ovf-h', {overflow: 'hidden'}],
