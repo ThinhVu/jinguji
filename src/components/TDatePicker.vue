@@ -6,7 +6,7 @@
         type="date"
         @input="updateV"
         :placeholder="placeholder"
-        style="outline: none; height: 32px; user-select: none;" class="t-date-picker-input br-1">
+        style="outline: none; height: 32px; user-select: none;" class="w-100 t-date-picker-input br-1">
   </div>
 </template>
 <script setup>
