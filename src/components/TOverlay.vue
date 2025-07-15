@@ -1,5 +1,5 @@
 <template>
-  <div class="w-100vw h-100vh fr ai-c fix top-0 left-0 bc:#1f232880" :style="{zIndex}" @click="handleOnClick">
+  <div class="w-100vw fr ai-c fix top-0 left-0 bc:#1f232880" :style="{zIndex}" style="height: var(--vh, 100vh)" @click="handleOnClick">
     <slot></slot>
   </div>
 </template>
@@ -16,4 +16,15 @@ const handleOnClick = (e) => {
     e.stopPropagation();
   }
 }
+
+const updateVh = () => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh * 100}px`);
+};
+
+onMounted(() => {
+  updateVh();
+  window.addEventListener('resize', updateVh);
+});
+
 </script>
