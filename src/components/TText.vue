@@ -3,7 +3,9 @@
     <div v-if="label" class="mb-1 fs-s c:#1F2328" style="user-select: none">{{label}}</div>
     <textarea
         v-if="multiLine"
-        :value="v" @input="updateV"
+        :value="v"
+        @input="updateV"
+        @keydown="handleKeyDown"
         :placeholder="placeholder"
         style="outline: none; user-select: none;"
         :cols="cols" :rows="rows" class="t-text-input br-1"/>
@@ -11,6 +13,7 @@
         v-else
         :value="v"
         @input="updateV"
+        @keydown="handleKeyDown"
         :placeholder="placeholder"
         style="outline: none; height: 32px; user-select: none;" class="t-text-input single-line br-1">
     <div v-if="v && !label" class="abs bc:#fff c:#888" style="top: -0.7em; left: 4px; padding-left: 4px; padding-right: 4px; font-size: small">
@@ -36,7 +39,7 @@ const props = defineProps({
   cols: [Number, String],
   rows: [Number, String],
 })
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'enter'])
 const emitModelValue = computed(() => debounce(v => emit('update:modelValue', v), props.debounceMs || 0))
 
 const v = ref(props.modelValue)
@@ -47,6 +50,13 @@ const updateV = e => {
   v.value = val
   emitModelValue.value(val)
 }
+
+const ENTER_DEBOUNCE_MS = 300
+const handleKeyDown = debounce((e) => {
+  if (e.key === 'Enter') {
+    emit('enter', v.value)
+  }
+}, ENTER_DEBOUNCE_MS)
 </script>
 
 <style scoped>

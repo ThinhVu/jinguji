@@ -1,11 +1,11 @@
 <template>
-  <div :style="{backgroundColor: bc}">
+  <div :style="{backgroundColor: bc}" class="px-5 h-100 ovf-y-a">
     <t-switch v-model="darkMode" label="Dark mode"/>
 
     <hr class="my-2"/>
 
     <div class="fc fg-32px px-2 py-2">
-      <t-text v-model="username" label="Username" placeholder="enter your username"/>
+      <t-text v-model="username" label="Username" placeholder="enter your username" @enter="enter"/>
       <t-text v-model="username" placeholder="enter your username"/>
       <t-password v-model="password" label="Password" placeholder="qweqwqweqwesd"/>
       <t-check-box v-model="rememberPwd" label="Remember password"/>
@@ -56,6 +56,10 @@ const subscriptionOptions = [
   {text: 'Monthly', value: 'm'},
   {text: 'Annually', value: 'y'},
 ]
+
+function enter() {
+  console.log('enter hit')
+}
 </script>
 <style scoped>
 </style>
