@@ -16,8 +16,8 @@ const behaviors = [
 
 /*https://material.io/resources/color*/
 const colors = [
-  [/^c:(.*?)$/, ([, c]) => ({color: c})],
-  [/^bc:(.*?)$/, ([, bc]) => ({'background-color': bc})],
+  [/^c:(.*?)$/, ([, c]) => ({color: `${c} !important`})],
+  [/^bc:(.*?)$/, ([, bc]) => ({'background-color': `bc !important`})],
 ]
 
 const layouts = [
@@ -31,11 +31,11 @@ const layouts = [
   ['h-100vh', {height: '100vh !important'}],
   ['w-100vw', {width: '100vw !important'}],
 
-  [/^min-h-(\d+)px/, ([, d]) => ({['min-height']: `${d}px`})],
-  [/^min-w-(\d+)px/, ([, d]) => ({['min-width']: `${d}px`})],
+  [/^min-h-(\d+)px/, ([, d]) => ({['min-height']: `${d}px !important`})],
+  [/^min-w-(\d+)px/, ([, d]) => ({['min-width']: `${d}px !important`})],
 
-  [/^max-h-(\d+)px/, ([, d]) => ({['max-height']: `${d}px`})],
-  [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px`})],
+  [/^max-h-(\d+)px/, ([, d]) => ({['max-height']: `${d}px !important`})],
+  [/^max-w-(\d+)px/, ([, d]) => ({['max-width']: `${d}px !important`})],
 
   /* overflow */
   ['ovf-h', {overflow: 'hidden'}],
