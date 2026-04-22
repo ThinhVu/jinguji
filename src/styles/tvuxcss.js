@@ -17,7 +17,7 @@ const behaviors = [
 /*https://material.io/resources/color*/
 const colors = [
   [/^c:(.*?)$/, ([, c]) => ({color: `${c} !important`})],
-  [/^bc:(.*?)$/, ([, bc]) => ({'background-color': `bc !important`})],
+  [/^bc:(.*?)$/, ([, bc]) => ({'background-color': `${bc} !important`})],
 ]
 
 const layouts = [
