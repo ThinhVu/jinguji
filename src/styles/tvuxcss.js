@@ -139,6 +139,8 @@ const spacing = [
   [/^pr-(\d+)$/, ([, d]) => ({'padding-right': `${d * 4}px`})],
   [/^px-(\d+)$/, ([, d]) => ({'padding-left': `${d * 4}px`, 'padding-right': `${d * 4}px`})],
   [/^py-(\d+)$/, ([, d]) => ({'padding-top': `${d * 4}px`, 'padding-bottom': `${d * 4}px`})],
+  [/^px-(\d+)px$/, ([, d]) => ({'padding-left': `${d}px`, 'padding-right': `${d}px`})],
+  [/^py-(\d+)px$/, ([, d]) => ({'padding-top': `${d}px`, 'padding-bottom': `${d}px`})],
 
   [/^mt-(\d+)$/, ([, d]) => ({'margin-top': `${d * 4}px`})],
   [/^ml-(\d+)$/, ([, d]) => ({'margin-left': `${d * 4}px`})],
@@ -146,6 +148,8 @@ const spacing = [
   [/^mr-(\d+)$/, ([, d]) => ({'margin-right': `${d * 4}px`})],
   [/^mx-(\d+)$/, ([, d]) => ({'margin-left': `${d * 4}px`, 'margin-right': `${d * 4}px`})],
   [/^my-(\d+)$/, ([, d]) => ({'margin-top': `${d * 4}px`, 'margin-bottom': `${d * 4}px`})],
+  [/^mx-(\d+)px$/, ([, d]) => ({'margin-left': `${d}px`, 'margin-right': `${d}px`})],
+  [/^my-(\d+)px$/, ([, d]) => ({'margin-top': `${d}px`, 'margin-bottom': `${d}px`})],
   ['mx-a', {'margin-left': 'auto', 'margin-right': 'auto'}],
 ]
 
