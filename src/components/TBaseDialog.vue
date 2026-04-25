@@ -14,15 +14,35 @@
   </div>
 </template>
 <script setup>
+import {onMounted, onUnmounted} from 'vue'
+
 const props = defineProps({
   title: String,
   bodyMaxHeight: String,
   showCloseIcon: {
     type: Boolean,
     default: true
+  },
+  closeOnEscapePressed: {
+    type: Boolean,
+    default: true
   }
 })
 const emit = defineEmits(['close'])
+
+const onKeyDown = (e) => {
+  if (e.key === 'Escape' && props.closeOnEscapePressed) {
+    emit('close')
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onKeyDown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', onKeyDown)
+})
 </script>
 
 <style scoped>
