@@ -26,15 +26,15 @@
     "dayjs": "^1.11.10",
     "lodash-es": "^4.17.21",
     "uuid": "^9.0.0",
-    "vue": "^3.3.4"
+    "vue": "^3.5.43"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^5.2.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "@vue/compiler-sfc": "^3.4.19",
+    "@vue/compiler-sfc": "^3.5.43",
     "conventional-changelog-cli": "^2.2.2",
-    "rome": "^12.0.0",
     "dotenv": "^16.0.3",
+    "rome": "^12.0.0",
     "unocss": "^0.58.5",
     "vite": "^5.1.3",
     "vite-plugin-inspect": "^0.7.18"
