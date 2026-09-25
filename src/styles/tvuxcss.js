@@ -94,16 +94,8 @@ const layouts = [
   /* https://css-tricks.com/snippets/css/complete-guide-grid */
   ['grid', {display: 'grid'}],
   [/^gg-(\w+)$/, ([, w]) => ({['grid-gap']: w})],
-  [/^gtc-(\w+)-(\w+)$/, ([, w1, w2]) => ({'grid-template-columns': `${w1} ${w2}`})],
-  [/^gtc-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3]) => ({'grid-template-columns': `${w1} ${w2} ${w3}`})],
-  [/^gtc-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4]) => ({'grid-template-columns': `${w1} ${w2} ${w3} ${w4}`})],
-  [/^gtc-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4, w5]) => ({'grid-template-columns': `${w1} ${w2} ${w3} ${w4} ${w5}`})],
-  [/^gtc-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4, w5, w6]) => ({'grid-template-columns': `${w1} ${w2} ${w3} ${w4} ${w5} ${w6}`})],
-  [/^gtr-(\w+)-(\w+)$/, ([, w1, w2]) => ({'grid-template-rows': `${w1} ${w2}`})],
-  [/^gtr-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3]) => ({'grid-template-rows': `${w1} ${w2} ${w3}`})],
-  [/^gtr-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4]) => ({'grid-template-rows': `${w1} ${w2} ${w3} ${w4}`})],
-  [/^gtr-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4, w5]) => ({'grid-template-rows': `${w1} ${w2} ${w3} ${w4} ${w5}`})],
-  [/^gtr-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)-(\w+)$/, ([, w1, w2, w3, w4, w5, w6]) => ({'grid-template-rows': `${w1} ${w2} ${w3} ${w4} ${w5} ${w6}`})],
+  [/^gtc-(.+)$/, ([, w]) => ({'grid-template-columns': w.split('-').join(' ')})],
+  [/^gtr-(.+)$/, ([, w]) => ({'grid-template-rows': w.split('-').join(' ')})],
 ]
 
 const borderRadius = [
